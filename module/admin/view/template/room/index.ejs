@@ -1,0 +1,39 @@
+<% layout(_view.get('_layout/list')) %>
+
+<% block('title', 'Rooms') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'id',
+            searchable: true
+        }, {
+            name: 'label',
+            format: {
+                name: 'translationByData',
+                key: 'name'
+            }
+        }, {
+            name: 'name',
+            searchable: true
+        }, {
+            name: 'new',
+            format: 'boolean'
+        }, {
+            name: 'public',
+            format: 'boolean'
+        }, {
+            name: 'players',
+            label: 'Number of players'
+        }, {
+            name: 'createdAt',
+            format: 'timestamp',
+            sortable: true
+        }],
+        key: 'id',
+        order: {createdAt: -1},
+        create: null,
+        delete: null,
+        multiple: false
+    }
+}) %>

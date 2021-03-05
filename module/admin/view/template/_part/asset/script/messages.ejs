@@ -1,0 +1,11 @@
+<!-- admin/_part/asset/messages -->
+<% if (_controller.language === 'ru') { %>
+<script src="message/ru.js"></script>
+<script src="admin/message/ru.js"></script>
+<script src="app/message/ru.js"></script>
+<% } %>
+
+<% if (typeof model !== 'undefined' && model?.arena) { %>
+<% for (const game of model.arena.games) { %>
+<%- include(game.getTemplate('messages')) %>
+<% }} %>

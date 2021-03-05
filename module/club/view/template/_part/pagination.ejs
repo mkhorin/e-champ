@@ -1,0 +1,33 @@
+<%
+const count = pager.getPageCount();
+const links = pager.getLinks();
+
+if (count > 1) {
+%>
+<nav class="text-center">
+    <ul class="pagination">
+        <% if (links[pager.LINK_FIRST]) { %>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_FIRST] %>"><span>&laquo;</span></a></li>
+        <% } else { %>
+        <li class="page-item disabled"><span>&laquo;</span></li>
+        <% } if (links[pager.LINK_PREV]) { %>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_PREV] %>"><span>&lsaquo;</span></a></li>
+        <% } else { %>
+        <li class="page-item disabled"><span>&lsaquo;</span></li>
+        <% } for (let i = 0; i < count; ++i) { %>
+        <% if (i === pager.page) { %>
+        <li class="page-item active"><span><%- i + 1 %></span></li>
+        <% } else { %>
+        <li class="page-item"><a class="page-link" href="<%- pager.createUrl(i) %>"><%- i + 1 %></a></li>
+        <% }} if (links[pager.LINK_NEXT]) { %>
+        <li class="page-item"><a class="page-link" href="<%- links[pager.LINK_NEXT] %>"><span>&rsaquo;</span></a></li>
+        <% } else { %>
+        <li class="page-item disabled"><span>&rsaquo;</span></li>
+        <% } if (links[pager.LINK_LAST]) { %>
+        <li class="page-item"><a href="<%- links[pager.LINK_LAST] %>"><span>&raquo;</span></a></li>
+        <% } else { %>
+        <li class="page-item disabled"><span>&raquo;</span></li>
+        <% } %>
+    </ul>
+</nav>
+<% } %>

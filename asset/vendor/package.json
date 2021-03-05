@@ -1,0 +1,11 @@
+{
+  "name": "e-champ-vendors",
+  "version": "1.0.0",
+  "description": "E-Champ vendors",
+  "author": "Maxim Khorin",
+  "license": "Apache-2.0",
+  "repository": {},
+  "dependencies": {
+    "file-saver": "^2.0.5"
+  }
+}

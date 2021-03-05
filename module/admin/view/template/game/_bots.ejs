@@ -1,0 +1,7 @@
+<!-- game/_bots -->
+<%
+const bots = Object.values(game.bots);
+for (const bot of bots) {
+%>
+<p><%- bot.translateLabel(_controller.language) %> (<%- bot.name %>)</p>
+<% } %>

@@ -1,0 +1,150 @@
+<!-- default/_new -->
+<div class="page" data-page="new" data-handler="NewPage">
+
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Club</a></li>
+            <li class="breadcrumb-item" data-t="">New</li>
+        </ol>
+    </div>
+
+    <h1 data-t="">New room</h1>
+
+    <div class="form-pane form" data-handler="NewRoomForm">
+
+        <div class="alert-error alert-danger alert"></div>
+
+        <div class="form-attr form-group row" data-handler="FormBoolean">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <input type="hidden" name="private">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label" data-t="">Hide this room from the public list</label>
+                </div>
+                <div class="error-block"></div>
+            </div>
+        </div>
+
+        <div class="form-attr form-group row required" data-handler="FormAttr">
+            <label class="col-md-3 col-form-label" data-t="">Your name</label>
+            <div class="col-md-9">
+                <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
+                <div class="error-block"></div>
+            </div>
+        </div>
+
+        <div class="form-attr form-group row required" data-handler="FormGames">
+            <label class="col-md-3 col-form-label" data-t="">Choose a game</label>
+            <div class="col-md-9">
+                <input name="game" type="hidden" value="">
+                <div class="form-game-list form-check-list"></div>
+                <template data-id="game">
+                    <div class="form-check">
+                        <input class="form-check-input" value="{{name}}" type="radio">
+                        <label class="form-check-label" data-t="">{{label}}</label>
+                    </div>
+                </template>
+                <div class="error-block"></div>
+            </div>
+        </div>
+
+        <div class="form-attr form-group row" data-handler="FormDescription">
+            <label class="col-md-3 col-form-label" data-t="">Description</label>
+            <div class="col-md-9">
+                <div class="form-control-plaintext">
+                    <a href="#" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-attr form-group row required" data-handler="FormOpponents">
+            <label class="col-md-3 col-form-label" data-t="">Choose opponents</label>
+            <div class="col-md-9">
+                <input name="opponents" type="hidden" value="">
+                <div class="new-opponents"></div>
+                <div class="error-block"></div>
+            </div>
+            <template data-id="opponent">
+                <div class="form-opponent">
+                    <div class="form-opponent-title">
+                        <span data-t="">Player</span>
+                        {{number}}
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" value="" checked type="radio">
+                        <label class="form-check-label" data-t="">None</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" value="remote" type="radio">
+                        <label class="form-check-label" data-t="">Remote</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" value="bot" type="radio">
+                        <label class="form-check-label" data-t="">Bot</label>
+                    </div>
+                    <div class="form-opponent-type">
+                        <select class="form-control" title="Bots">{{bots}}</select>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div class="option-group"></div>
+
+        <div class="form-footer form-group row">
+            <div class="col-md-9 offset-md-3">
+                <button type="button" class="btn-success btn" data-command="create">
+                    <span data-t="">Create</span>
+                </button>
+            </div>
+        </div>
+
+        <template data-id="checkbox">
+            <div class="option-attr form-attr form-group row" data-handler="FormBoolean">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <input type="hidden" name="{{name}}">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" data-t="{{t}}">{{label}}</label>
+                    </div>
+                    <div class="error-block"></div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="number">
+            <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
+                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-md-9">
+                    <input name="{{name}}" type="number" class="form-control" value="{{value}}">
+                    <div class="error-block"></div>
+                    <div class="hint-block" data-t="{{t}}">{{hint}}</div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="string">
+            <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
+                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-md-9">
+                    <input name="{{name}}" type="text" class="form-control" value="{{value}}">
+                    <div class="error-block"></div>
+                    <div class="hint-block" data-t="{{t}}">{{hint}}</div>
+                </div>
+            </div>
+        </template>
+
+        <template data-id="select">
+            <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
+                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-md-9">
+                    <select name="{{name}}" class="form-control">{{items}}</select>
+                    <div class="error-block"></div>
+                    <div class="hint-block" data-t="{{t}}">{{hint}}</div>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>

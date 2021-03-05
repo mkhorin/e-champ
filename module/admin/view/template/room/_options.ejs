@@ -1,0 +1,17 @@
+<!-- room/_options -->
+<%
+const attrs = room.game.getOptionAttrs();
+if (Array.isArray(attrs)) {
+    const staticTemplate = _view.get('_part/attr/static');
+    for (const attr of attrs) {
+%>
+<%- include(staticTemplate, {
+    attr: attr.name,
+    label: attr.label,
+    value: room.options[attr.name],
+    format: attr.format,
+    translate: room.game.name,
+    labelCss: 'col-lg-3',
+    valueCss: 'col-lg-9'
+}) %>
+<% }} %>

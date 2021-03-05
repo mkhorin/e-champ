@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="<%- _controller.language %>">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <base href="<%- _baseUrl %>">
+
+    <title data-t="">Game club</title>
+
+    <%- include(_view.get('_part/asset/style/main')) %>
+
+    <link rel="stylesheet" href="club/style/module.css">
+</head>
+<body data-csrf="<%- _controller.getCsrfToken() %>">
+
+<div class="main-wrapper">
+
+    <%- body %>
+
+</div>
+
+<%- include(_view.get('_part/asset/script/main')) %>
+<%- include(_view.get('_part/asset/script/messages')) %>
+
+<script src="vendor/file-saver/FileSaver.min.js"></script>
+<script src="script/init.js"></script>
+
+<%- scripts %>
+
+</body>
+</html>

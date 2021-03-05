@@ -1,0 +1,17 @@
+<!-- room/_players -->
+<%
+for (const player of room.players) {
+    if (player.isFree()) {
+%>
+<p class="text-success">[<span data-t="">Free place</span>]</p>
+<% } else if (player.isBot()) { %>
+<p>
+    <span class="text-info" data-t="">[Bot]</span>
+    <%- player.bot.translateLabel(_controller.language) %>
+</p>
+<% } else { %>
+<p>
+    <span class="semi-bold"><%- player.name %></span>
+    <small><%- player.ip %></small>
+</p>
+<% }} %>

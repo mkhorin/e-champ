@@ -1,0 +1,29 @@
+<%
+layout(_view.get('_layout/content'));
+
+script('club/vendor/club.min.js');
+
+const dataUrl = _url('/api/base/data/');
+const metaUrl = _url('/api/base/meta/');
+const roomUrl = _url('/club/room/');
+const isGuest = _controller.user.isGuest();
+%>
+
+<div class="club"
+     data-games="<%= JSON.stringify(games) %>"
+     data-guest="<%- isGuest %>"
+     data-user="<%- _controller.user.getId() %>"
+     data-data-url="<%- dataUrl %>"
+     data-meta-url="<%- metaUrl %>"
+     data-room-url="<%- roomUrl %>"
+     data-socket-path="<%- arena.socketPath %>">
+
+    <%- include(_view.get('default/_main'), {isGuest}) %>
+    <%- include(_view.get('default/_new')) %>
+    <%- include(_view.get('default/_join')) %>
+    <%- include(_view.get('default/_gathering')) %>
+    <%- include(_view.get('default/_play')) %>
+    <%- include(_view.get('default/_playback')) %>
+</div>
+
+<% script('club/script/module.js'); %>
