@@ -75,6 +75,7 @@ module.exports = class Game extends Base {
             maxPlayers: this.maxPlayers,
             bots: this.serializeBots(),
             defaultBot: this.defaultBot?.name,
+            defaultOpponents: this.defaultOpponents,
             options: this.options,
             optionAttrs: this.getOptionAttrs(),
             webPage: this.webPage

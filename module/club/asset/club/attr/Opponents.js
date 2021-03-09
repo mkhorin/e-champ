@@ -3,6 +3,9 @@
  */
 Club.FormOpponents = class FormOpponents extends Club.FormAttr {
 
+    static BOT_TYPE = 'bot';
+    static REMOTE_TYPE = 'remote';
+
     init () {
         super.init();
         this.$list = this.find('.new-opponents');
@@ -14,14 +17,15 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
 
     onChangeGame () {
         this.renderItems();
-        //this.find('[value="bot"]').slice(0, 3).click();
+        this.setDefaultOpponents();
     }
 
     renderItems () {
         const items = [];
-        if (this.form.game) {
-            for (let i = 1; i < this.form.game.maxPlayers; ++i) {
-                items.push(this.renderItem(i, this.form.game));
+        const game = this.form.game;
+        if (game) {
+            for (let i = 1; i < game.maxPlayers; ++i) {
+                items.push(this.renderItem(i, game));
             }
         }
         Jam.t(this.$list.html(items.join('')));
@@ -37,9 +41,26 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
 
     renderBots (data) {
         return data.bots.map(({name, label}) => {
-            const selected = name === data.defaultBot ? ' selected' : '';
-            return `<option value="${name}"${selected}>${label}</option>`;
+            const selected = name === data.defaultBot ? 'selected' : '';
+            return `<option value="${name}" ${selected}>${label}</option>`;
         }).join('');
+    }
+
+    setDefaultOpponents () {
+        const opponents = this.form.game?.defaultOpponents;
+        if (Array.isArray(opponents)) {
+            for (let i = 0; i < opponents.length; ++i) {
+                this.setDefaultOpponent(opponents[i], i);
+            }
+        }
+    }
+
+    setDefaultOpponent (data, index) {
+        const [type, bot] = data.split(':');
+        const $type = this.find(`[value="${type}"]`).eq(index).click();
+        if (bot) {
+            $type.closest('.form-opponent').find('select').val(bot).change();
+        }
     }
 
     getValue (name) {

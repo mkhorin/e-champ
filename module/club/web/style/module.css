@@ -257,10 +257,10 @@ body {
 [data-opponent="aqua"] .form-opponent-icon {
     background: var(--oppo-aqua);
 }
-.form-opponent-type {
+.form-opponent-bot {
     display: none;
 }
-.form-opponent[data-type="bot"] .form-opponent-type {
+.form-opponent[data-type="bot"] .form-opponent-bot {
     display: block;
 }
 .gathering-opponents .form-opponent-status {
@@ -276,14 +276,14 @@ body {
 .gathering-opponents .form-opponent-ready {
     background: #0b0;
 }
-.gathering-opponents .form-opponent-bot {
+.gathering-opponents .form-opponent-bot-label {
     font-weight: bold;
     color: #68a;
 }
 .page.loading .form,
 .page.loading .alert-error,
 .has-alert[data-page="gathering"] .form,
-.gathering-opponents [data-type="remote"] .form-opponent-bot,
+.gathering-opponents [data-type="remote"] .form-opponent-bot-label,
 .gathering-opponents [data-status="free"] .form-opponent-ready,
 .gathering-opponents [data-status="ready"] .form-opponent-free {
     display: none;
@@ -301,7 +301,7 @@ body {
     .new-opponents .form-opponent-title {
         margin: 0 0 5px 0;
     }
-    .new-opponents .form-opponent-type {
+    .new-opponents .form-opponent-bot {
         margin: 10px 0 0 0;
     }
 }

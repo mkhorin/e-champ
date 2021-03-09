@@ -23,7 +23,7 @@ Object.assign(Jam.I18n.defaults, {
     'Info': 'Информация',
 
     'Join': 'Присоединиться',
-    'Join room': 'Присоединиться к комнате',
+    'Join a room': 'Присоединиться к комнате',
 
     'Hide this room from the public list': 'Скрыть комнату из публичного списка',
 
