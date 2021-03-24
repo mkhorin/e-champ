@@ -31,7 +31,7 @@ Club.MotionElement = class MotionElement {
     }
 
     getDuration () {
-        return this.duration === undefined
+        return this.speed !== undefined
             ? this.getDurationBySpeed()
             : this.duration;
     }

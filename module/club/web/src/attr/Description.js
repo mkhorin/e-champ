@@ -11,7 +11,8 @@ Club.FormDescription = class FormDescription extends Club.FormAttr {
 
     onChangeGame () {
         const data = this.club.getGameData(this.form.getValue('game'));
-        const url = data?.webPage || '';
+        const url = data?.webPage;
         this.find('a').attr('href', url).html(url);
+        this.toggleClass('hidden', !url);
     }
 };

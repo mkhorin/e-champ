@@ -16,8 +16,8 @@ module.exports = class Events extends Base {
         return this.events.length > this.cursor;
     }
 
-    getLastTimestamp () {
-        return this.events[this.events.length - 1]?.timestamp;
+    getLast () {
+        return this.events[this.events.length - 1];
     }
 
     add (name, data) {

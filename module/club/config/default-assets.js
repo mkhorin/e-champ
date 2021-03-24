@@ -6,25 +6,20 @@
 module.exports = {
 
     build: [{
-        Class: 'FileMerger',
+        Class: 'Packer',
         sources: [
-            'club/Club.js',
-            'club/Element.js',
-            'club/Loadable.js',
-            'club/attr/Attr.js',
-            'club/attr/RadioList.js',
-            'club/form/Form.js',
-            'club/page/Page.js',
-            'club/play/Play.js',
-            'club'
+            'src/Club.js',
+            'src/Element.js',
+            'src/Loadable.js',
+            'src/attr/Attr.js',
+            'src/attr/RadioList.js',
+            'src/form/Form.js',
+            'src/page/Page.js',
+            'src/play/Play.js',
+            'src'
         ],
-        target: 'dist/club.min.js',
+        target: 'vendor/club.min.js',
         copyright: `/* @copyright Copyright (c) 2021 Maxim Khorin <maksimovichu@gmail.com> */\n`,
-        logging: true,
-        shrinking: false
-    }],
-
-    deploy: {
-        'vendor': 'dist/club.min.js'
-    }
+        logging: true
+    }]
 };

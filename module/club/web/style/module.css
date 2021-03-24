@@ -145,6 +145,13 @@ body {
 .page-head .breadcrumb + h1 {
     margin-top: 2rem;
 }
+.page-head .breadcrumb .game-item-name {
+    font-weight: 500;
+}
+.page-head .breadcrumb .game-item-name small {
+    margin-left: .2rem;
+    font-size: .9rem;
+}
 .page .on-page-alert {
     display: none;
 }

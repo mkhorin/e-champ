@@ -51,4 +51,8 @@ Club.Page = class Page extends Club.Element {
     resolveResources () {
         return Jam.resource.resolve(...arguments);
     }
+
+    setGameItemName (name) {
+        this.find('.game-item-name').first().html(name);
+    }
 };

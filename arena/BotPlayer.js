@@ -15,7 +15,9 @@ module.exports = class BotPlayer extends Player {
             ...config
         });
         this.bot = this.room.game.getBot(this.bot);
-        this.solverConfiguration = this.createSolverConfiguration();
+        if (this.bot.solver) {
+            this.solverConfiguration = this.createSolverConfiguration();
+        }
         this.name = this.bot.name;
     }
 
@@ -61,6 +63,12 @@ module.exports = class BotPlayer extends Player {
         this.solver?.clear();
         this.solver = null;
         clearTimeout(this.solverTimer);
+    }
+
+    getData () {
+        return Object.assign(super.getData(), {
+            params: this.bot.params
+        });
     }
 };
 

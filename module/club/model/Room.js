@@ -52,7 +52,7 @@ module.exports = class Room extends Base {
                 return this.addError(attr, 'Invalid player type: ${type}');
             }
             if (type === 'bot' && !this.game.getBot(bot)) {
-                return this.addError(attr, 'Invalid bot: ${bot}');
+                return this.addError(attr, `Invalid bot: ${bot}`);
             }
             this.opponents.push({type, bot});
         }

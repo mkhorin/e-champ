@@ -1,6 +1,6 @@
 # E-Champ
 
-### A server-side platform for turn-based browser online games.
+### A server-side platform for turn-based online games.
 
 The E-Champ includes games as separate npm modules.
 Each game implements backend and frontend parts in the platform standard.

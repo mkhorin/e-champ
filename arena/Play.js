@@ -8,9 +8,7 @@ const Base = require('areto/base/Base');
 module.exports = class Play extends Base {
 
     constructor (config) {
-        super({
-            ...config
-        });
+        super(config);
         this.game = this.room.game;
         this.options = this.room.options;
         this.round = 0;
@@ -28,12 +26,12 @@ module.exports = class Play extends Base {
     start () {
     }
 
-    addEvent () {
-        return this.events.add(...arguments);
+    getLastTimestamp () {
+        return this.events.getLast()?.timestamp;
     }
 
-    getLastTimestamp () {
-        return this.events.getLastTimestamp();
+    addEvent () {
+        return this.events.add(...arguments);
     }
 
     createEvents () {

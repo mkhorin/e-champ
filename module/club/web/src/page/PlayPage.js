@@ -37,7 +37,7 @@ Club.PlayPage = class PlayPage extends Club.Page {
         if (!play) {
             return this.toggleAlert(true, 'Play handler not found');
         }
-        this.find('.game-item-name').first().html(play.getLabel());
+        this.setGameItemName(play.getLabel());
         play.attachSocket(this.club.socket);
         play.start(data, this);
     }
@@ -59,7 +59,7 @@ Club.PlayPage = class PlayPage extends Club.Page {
         if (!play) {
             return false;
         }
-        if (!play.isFinished()) {
+        if (play.hasExportData()) {
             return this.downloadData(play.exportData());
         }
         const room = play.room;

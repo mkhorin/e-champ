@@ -26,11 +26,19 @@ Club.PlayEvents = class PlayEvents {
         return index;
     }
 
-    getLastItem () {
+    isLastName (name) {
+        return this.getLastName() === name;
+    }
+
+    getLastName () {
+        return this.getLast()?.[0];
+    }
+
+    getLast () {
         return this.items[this.items.length - 1];
     }
 
-    getLastItemByName (name) {
+    getLastByName (name) {
         return this.items[this.getLastIndexByName(name)];
     }
 

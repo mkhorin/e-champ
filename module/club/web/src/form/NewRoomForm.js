@@ -28,6 +28,7 @@ Club.NewRoomForm = class NewRoomForm extends Club.Form {
         const attrs = this.game?.optionAttrs;
         if (Array.isArray(attrs)) {
             $group.html(attrs.map(this.renderAttr, this).join(''));
+            Jam.Helper.bindLabelsToInputs($group);
             Jam.t($group);
             Club.createHandlers(this.club, $group.get(0));
             this.setOptionDefaultValues();

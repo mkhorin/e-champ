@@ -140,10 +140,12 @@ Club.Form = class Form extends Club.Element {
     }
 
     renderOption ({name, label}, data, template, game) {
-        return this.resolveTemplate(template, {
-            label: Jam.t(label, game),
-            value: this.stringifyOptionValue(data[name])
-        });
+        const value = this.stringifyOptionValue(data[name]);
+        if (typeof value === 'string' && !value) {
+            return '';
+        }
+        label = Jam.t(label, game);
+        return this.resolveTemplate(template, {label, value});
     }
 
     stringifyOptionValue (value) {

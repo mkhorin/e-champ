@@ -31,6 +31,8 @@ Club.PlayInfo = class PlayInfo {
     }
 
     renderInfoItem (label, value) {
-        return `<div><label>${label}:</label> ${value}</div>`;
+        return String(value)
+            ? `<div><label>${label}:</label> ${value}</div>`
+            : '';
     }
 };

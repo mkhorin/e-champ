@@ -35,6 +35,7 @@ Club.Play = class Play extends Club.Element {
     }
 
     clear () {
+        this.motion.clear();
     }
 
     attachSocket (socket) {
@@ -57,11 +58,11 @@ Club.Play = class Play extends Club.Element {
 
     onMessage (data) {
         this.messageTimestamp = data.timestamp;
-        console.log('Socket message timestamp', this.messageTimestamp);
+        console.log('Socket message', this.messageTimestamp);
     }
 
-    onErrorMessage (data) {
-        Jam.dialog.error(data);
+    onErrorMessage (message) {
+        Jam.dialog.error(message);
     }
 
     send (action, data) {
@@ -84,8 +85,22 @@ Club.Play = class Play extends Club.Element {
         return this.club.resolvePlayerName(data, this.game);
     }
 
+    setGameLabel (name) {
+        this.page.setGameItemName(this.translate(name));
+    }
+
     translate (message) {
         return Jam.t(message, this.game.name);
+    }
+
+    getOptionAttr (name) {
+        if (this.game.optionAttrs) {
+            for (const attr of this.game.optionAttrs) {
+               if (attr.name === name) {
+                   return attr;
+               }
+            }
+        }
     }
 
     getInfoItems () {
@@ -105,9 +120,17 @@ Club.Play = class Play extends Club.Element {
         }) || [];
     }
 
+    hasExportData () {
+        return true; // use existing play data or retrieve from server
+    }
+
     exportData () {
         return {
             game: this.game.name
         };
+    }
+
+    toggleAlert () {
+        this.page.toggleAlert(...arguments)
     }
 };

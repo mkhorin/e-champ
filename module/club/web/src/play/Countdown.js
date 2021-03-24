@@ -37,6 +37,16 @@ Club.Countdown = class Countdown {
     }
 
     draw () {
+        const rest = this.timeout
+            ? Math.ceil(this.getValue() * 100 / this.timeout)
+            : 100;
+        this.$element.css('--rest', (rest < 0 ? 0 : rest) + '%');
+    }
+};
+
+Club.CircularCountdown = class CircularCountdown extends Club.Countdown {
+
+    draw () {
         let value = this.getValue();
         let current = !this.timeout ? 360 : value < 0 ? 0 : Math.round(value * 360 / this.timeout);
         if (current > 180) {

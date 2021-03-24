@@ -36,10 +36,13 @@ Club.PlaybackPage = class PlaybackPage extends Club.Page {
         if (!playback) {
             return this.toggleAlert(true, 'Playback handler not found');
         }
-        const filename = Jam.StringHelper.trimEnd(file.name, '.json');
-        const label = `<b>${playback.getLabel()}</b> (${filename})`;
-        this.find('.game-item-name').first().html(label);
+        this.filename = Jam.StringHelper.trimEnd(file.name, '.json');
+        this.setGameItemName(playback.getLabel());
         playback.start(data, this);
+    }
+
+    setGameItemName (name) {
+        super.setGameItemName(`${name} <small>(${this.filename})</small>`);
     }
 
     clearPlay () {
