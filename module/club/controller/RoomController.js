@@ -64,8 +64,9 @@ module.exports = class RoomController extends Base {
 
     actionPlay () {
         const room = this.getRoom();
-        const template = room.game.getTemplate('play', this);
-        return this.render(template, {room});
+        const game = room.game;
+        const template = game.getTemplate('play', this);
+        return this.render(template, {room, game});
     }
 
     actionDownload () {

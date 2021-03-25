@@ -23,26 +23,45 @@ module.exports = class AssetConsole extends Base {
     }
 
     async installGame (game) {
+        await this.installItem(game);
+        for (const bot of game.bots) {
+            await this.installItem(bot);
+        }
+    }
+
+    async installItem (item) {
         const executor = this.createAssetExecutor(this.assetInstaller);
-        const dir = game.getPath(executor.getVendorDir());
+        const dir = item.getPath(executor.getVendorDir());
         await executor.installVendors(dir);
     }
 
     async buildGame (game) {
-        const data = game.assets?.build;
-        if (data) {
-            this.log('info', `Building game assets: ${game.name}`);
+        await this.buildItem(game, 'Building game assets');
+        for (const bot of game.bots) {
+            await this.buildItem(bot, 'Building bot assets');
+        }
+    }
+
+    async buildItem (item, message) {
+        if (item.assets?.build) {
+            this.log('info', `${message}: ${item.name}`);
             const executor = this.createAssetExecutor(this.assetBuilder);
-            await executor.buildAssets(data, game.getPath());
+            await executor.buildAssets(item.assets.build, item.getPath());
         }
     }
 
     async deployGame (game) {
-        const data = game.assets?.deploy;
-        if (data) {
-            this.log('info', `Deploying game assets: ${game.name}`);
+        await this.deployItem(game, 'Deploying game assets');
+        for (const bot of game.bots) {
+            await this.deployItem(bot, 'Deploying bot assets');
+        }
+    }
+
+    async deployItem (item, message) {
+        if (item.assets?.deploy) {
+            this.log('info', `${message}: ${item.name}`);
             const executor = this.createAssetExecutor(this.assetDeployer);
-            await executor.deployAssets(data, game.getPath());
+            await executor.deployAssets(item.assets.deploy, item.getPath());
         }
     }
 

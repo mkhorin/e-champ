@@ -18,7 +18,7 @@ module.exports = class Game extends Base {
             templates: {},
             ...config
         });
-        this.createBots();
+        this.bots = this.createBots(this.bots);
         this.defaultBot = this.getBot(this.defaultBot);
         this.resolveTemplates();
     }
@@ -28,7 +28,7 @@ module.exports = class Game extends Base {
     }
 
     getBot (name) {
-        return ObjectHelper.getValue(name, this.bots);
+        return this.bots.get(...arguments);
     }
 
     getEventConfig (name) {
@@ -41,6 +41,13 @@ module.exports = class Game extends Base {
 
     createRoom (data) {
         return ClassHelper.spawn({...this.room, ...data, game: this});
+    }
+
+    attachStaticSources () {
+        this.arena.attachStaticDirectory(...this.getStaticSource());
+        for (const bot of this.bots) {
+            bot.attachStaticSource();
+        }
     }
 
     getStaticSource () {
@@ -61,11 +68,16 @@ module.exports = class Game extends Base {
         }
     }
 
-    createBots () {
-        const game = this;
-        for (const name of Object.keys(this.bots)) {
-            this.bots[name] = ClassHelper.spawn({...this.bot, ...this.bots[name], name, game});
+    createBots (data) {
+        const bots = new DataMap;
+        for (const name of Object.keys(data)) {
+            bots.set(name, this.createBot(name, data[name]));
         }
+        return bots;
+    }
+
+    createBot (name, data) {
+        return ClassHelper.spawn({...this.bot, ...data, game: this, name});
     }
 
     serialize () {
@@ -83,7 +95,7 @@ module.exports = class Game extends Base {
     }
 
     serializeBots () {
-        return Object.values(this.bots).map(bot => bot.serialize());
+        return this.bots.map(bot => bot.serialize());
     }
 
     getOptionAttrs () {
@@ -105,7 +117,7 @@ module.exports.init();
 
 const Bot = require('./Bot');
 const ClassHelper = require('areto/helper/ClassHelper');
+const DataMap = require('areto/base/DataMap');
 const Event = require('./Event');
-const ObjectHelper = require('areto/helper/ObjectHelper');
 const Room = require('./Room');
 const path = require('path');

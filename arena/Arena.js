@@ -46,8 +46,12 @@ module.exports = class Arena extends Base {
 
     attachStaticSources () {
         for (const game of this.games) {
-            this.module.attachStaticDirectory(...game.getStaticSource());
+            game.attachStaticSources();
         }
+    }
+
+    attachStaticDirectory () {
+        this.module.attachStaticDirectory(...arguments);
     }
 
     serializeGames () {
