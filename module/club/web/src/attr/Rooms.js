@@ -21,9 +21,6 @@ Club.FormRooms = class FormRooms extends Club.FormAttr {
         this.toggleClass('loading', false);
         this.items = data;
         this.render();
-        if (this.items.length === 1) {
-            this.toggleOpenItem(this.find('.item'));
-        }
     }
 
     getItem (id) {
@@ -71,7 +68,7 @@ Club.FormRooms = class FormRooms extends Club.FormAttr {
     }
 
     toggleOpenItem ($item) {
-        this.find('.open').removeClass('open');
+        this.find('.open').not($item).removeClass('open');
         const item = this.getItem($item.data('id'));
         $item.find('.item-body').html(this.renderItemOptions(item));
         $item.toggleClass('open');

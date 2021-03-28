@@ -121,7 +121,10 @@ Club.CardList = class CardList {
     }
 
     getSteps (total) {
-        return [Club.getOffsetStep(this.width, this.getCardWidth(), total, this.getMaxCardSpace()), 0];
+        const cardWidth = this.getCardWidth();
+        const space = this.getMaxCardSpace();
+        const dx = Club.getOffsetStep(this.width, cardWidth, total, space);
+        return [dx < 2 ? 0 : dx, 0];
     }
 
     getCardOffset (card) {
