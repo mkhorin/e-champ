@@ -117,7 +117,7 @@ Club.CardList = class CardList {
     }
 
     getMaxCardSpace () {
-        return 5;
+        return 6;
     }
 
     getSteps (total) {
