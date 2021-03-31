@@ -62,6 +62,6 @@ module.exports = class Bot extends Base {
         return this.translations?.[language]?.[key];
     }
 };
-module.exports.init();
+module.exports.init(module);
 
 const path = require('path');
