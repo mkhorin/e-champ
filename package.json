@@ -1,6 +1,6 @@
 {
   "name": "e-champ",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A server platform for turn-based online games",
   "author": "Maxim Khorin",
   "license": "Apache-2.0",

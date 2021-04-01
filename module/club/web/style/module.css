@@ -316,71 +316,80 @@ body {
 /* CARD */
 
 .play .card {
+    --width: 84px;
+    --height: 128px;
     position: absolute;
     left: 0;
     top: 0;
-    width: 84px;
-    height: 128px;
+    width: var(--width);
+    height: var(--height);
     z-index: 1;
     border: none;
     border-radius: 0;
 }
-[data-rank="2"] {
-    background-position-x: -84px;
+.play [data-rank="2"] {
+    background-position-x: calc(var(--width) * -1);
 }
-[data-rank="3"] {
-    background-position-x: -168px;
+.play [data-rank="3"] {
+    background-position-x: calc(var(--width) * -2);
 }
-[data-rank="4"] {
-    background-position-x: -252px;
+.play [data-rank="4"] {
+    background-position-x: calc(var(--width) * -3);
 }
-[data-rank="5"] {
-    background-position-x: -336px;
+.play [data-rank="5"] {
+    background-position-x: calc(var(--width) * -4);
 }
-[data-rank="6"] {
-    background-position-x: -420px;
+.play [data-rank="6"] {
+    background-position-x: calc(var(--width) * -5);
 }
-[data-rank="7"] {
-    background-position-x: -504px;
+.play [data-rank="7"] {
+    background-position-x: calc(var(--width) * -6);
 }
-[data-rank="8"] {
-    background-position-x: -588px;
+.play [data-rank="8"] {
+    background-position-x: calc(var(--width) * -7);
 }
-[data-rank="9"] {
-    background-position-x: -672px;
+.play [data-rank="9"] {
+    background-position-x: calc(var(--width) * -8);
 }
-[data-rank="10"] {
-    background-position-x: -756px;
+.play [data-rank="10"] {
+    background-position-x: calc(var(--width) * -9);
 }
-[data-rank="11"] {
-    background-position-x: -840px;
+.play [data-rank="11"] {
+    background-position-x: calc(var(--width) * -10);
 }
-[data-rank="12"] {
-    background-position-x: -924px;
+.play [data-rank="12"] {
+    background-position-x: calc(var(--width) * -11);
 }
-[data-rank="13"] {
-    background-position-x: -1008px;
+.play [data-rank="13"] {
+    background-position-x: calc(var(--width) * -12);
 }
-[data-rank="14"] {
-    background-position-x: -1092px;
+.play [data-rank="14"] {
+    background-position-x: calc(var(--width) * -13);
 }
-[data-suit="diamonds"] {
+.play [data-suit="diamonds"] {
     background-position-y: 0;
 }
-[data-suit="hearts"] {
-    background-position-y: -128px;
+.play [data-suit="hearts"] {
+    background-position-y: calc(var(--height) * -1);
 }
-[data-suit="clubs"] {
-    background-position-y: -256px;
+.play [data-suit="clubs"] {
+    background-position-y: calc(var(--height) * -2);
 }
-[data-suit="spades"] {
-    background-position-y: -384px;
+.play [data-suit="spades"] {
+    background-position-y: calc(var(--height) * -3);
 }
 .play .card.back {
     background-position: 0 0 !important;
 }
 .play .card.selected {
     z-index: 2;
+}
+.play .small-card {
+    --width: 28px;
+    --height: 40px;
+    display: none;
+    width: var(--width);
+    height: var(--height);
 }
 
 /* CARD DECK */
@@ -390,6 +399,12 @@ body {
 }
 [data-deck="slavic"] .card {
     background-image: url(../image/slavic.png);
+}
+[data-deck="german"] .small-card {
+    background-image: url(../image/german-small.png);
+}
+[data-deck="slavic"] .small-card {
+    background-image: url(../image/slavic-small.png);
 }
 
 /* MOTION */

@@ -42,6 +42,10 @@ Club.CardList = class CardList {
         return this.items.forEach(...arguments);
     }
 
+    [Symbol.iterator] () {
+        return this.items[Symbol.iterator]();
+    }
+
     clear () {
         this.items = [];
         this.trigger('change');
