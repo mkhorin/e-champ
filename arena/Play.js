@@ -7,6 +7,8 @@ const Base = require('areto/base/Base');
 
 module.exports = class Play extends Base {
 
+    static ACTION_START = 'start';
+
     constructor (config) {
         super(config);
         this.game = this.room.game;
@@ -52,7 +54,7 @@ module.exports = class Play extends Base {
         if (this.error) {
             return socket.sendError(this.error);
         }
-        if (!data.action) {
+        if (data.action === this.constructor.ACTION_START) {
             return this.sendStartData(socket);
         }
         if (this.getLastTimestamp() !== data.timestamp) {

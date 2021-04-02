@@ -47,15 +47,22 @@ module.exports = class Room extends Base {
         }
         this.opponents = [];
         for (const item of items) {
-            const [type, bot] = item.split(':');
-            if (type !== 'remote' && type !== 'bot') {
-                return this.addError(attr, 'Invalid player type: ${type}');
-            }
-            if (type === 'bot' && !this.game.getBot(bot)) {
-                return this.addError(attr, `Invalid bot: ${bot}`);
-            }
-            this.opponents.push({type, bot});
+            this.opponents.push(this.validateOpponent(item, attr));
         }
+    }
+
+    validateOpponent (data, attr) {
+        const [type, bot] = data.split(':');
+        if (type === 'remote') {
+            return {type};
+        }
+        if (type !== 'bot') {
+            return this.addError(attr, `Invalid player type: ${type}`);
+        }
+        if (this.game.getBot(bot)) {
+            return {type, bot};
+        }
+        this.addError(attr, `Invalid bot: ${bot}`);
     }
 
     async validateOptions () {

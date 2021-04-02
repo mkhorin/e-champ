@@ -38,7 +38,6 @@ Club.PlayPage = class PlayPage extends Club.Page {
             return this.toggleAlert(true, 'Play handler not found');
         }
         this.setGameItemName(play.getLabel());
-        play.attachSocket(this.club.socket);
         play.start(data, this);
     }
 

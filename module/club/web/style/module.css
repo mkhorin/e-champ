@@ -385,7 +385,7 @@ body {
     z-index: 2;
 }
 .play .small-card {
-    --width: 28px;
+    --width: 30px;
     --height: 40px;
     display: none;
     width: var(--width);
