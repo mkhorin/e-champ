@@ -43,16 +43,20 @@ module.exports = class BotPlayer extends Player {
         try {
             this.solver.execute(data);
         } catch (err) {
-            this.log('error', err);
-            this.room.play?.setError(`Bot: ${this.name}: ${err.toString()}`);
+            this.onError(err);
         }
     }
 
     onSolved (origin, action, data) {
         if (this.solver === origin) {
-            this.room.play?.onBotMessage({action, ...data}, this);
+            this.room.play?.onBotMessage({action, ...data}, this).catch(this.onError.bind(this));
             this.solver = null;
         }
+    }
+
+    onError (err) {
+        this.log('error', err);
+        this.room.play?.setError(`Bot: ${this.name}: ${err}`);
     }
 
     clear () {

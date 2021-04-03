@@ -13,14 +13,6 @@ Club.PlayEvents = class PlayEvents {
         return this.cursor >= this.count() - 1;
     }
 
-    getEventClass (name) {
-        const EventClass = this.params.BaseEvent.getClass(name);
-        if (EventClass) {
-            return EventClass;
-        }
-        throw new Error(`Event not found: ${name}`);
-    }
-
     getFirstPreviousIndexByName (index, name) {
         while (this.items[index - 1][0] === name) --index;
         return index;
@@ -52,8 +44,46 @@ Club.PlayEvents = class PlayEvents {
 
     add (items) {
         if (Array.isArray(items)) {
+            this.excludePrediction(items);
             this.items.push(...items);
         }
+    }
+
+    addPrediction (name, data) {
+        if (this.prediction) {
+            throw Error('Previous prediction not yet approved');
+        }
+        this.prediction = [name, data];
+        this.items.push(this.prediction);
+    }
+
+    excludePrediction (items) {
+        const index = this.search(this.prediction, items);
+        if (Number.isInteger(index)) {
+            items.splice(index, 1, [null]);
+            this.prediction = null;
+        }
+    }
+
+    search (item, items) {
+        if (item && Array.isArray(items)) {
+            for (let i = 0; i < items.length; ++i) {
+                if (this.matchItems(item, items[i])) {
+                    return i;
+                }
+            }
+        }
+    }
+
+    matchItems (a, b) {
+        if (a[0] !== b[0]) {
+            return false;
+        }
+        const event = this.getEventClass(a[0]);
+        if (event.matchByData) {
+            return event.matchByData(a[1], b[1]);
+        }
+        return JSON.stringify(a) === JSON.stringify(b);
     }
 
     count () {
@@ -81,6 +111,7 @@ Club.PlayEvents = class PlayEvents {
         this.hiddenIndex = -1;
         this.stopIndex = null;
         this.runningEvent = null;
+        this.prediction = null;
     }
 
     slice () {
@@ -123,6 +154,17 @@ Club.PlayEvents = class PlayEvents {
             index: this.cursor,
             ...params
         });
+    }
+
+    getEventClass (name) {
+        const EventClass = this.params.BaseEvent.getClass(name);
+        if (EventClass) {
+            return EventClass;
+        }
+        if (!name) {
+            return this.params.BaseEvent;
+        }
+        throw new Error(`Event not found: ${name}`);
     }
 
     resolveHiddenIndex () {

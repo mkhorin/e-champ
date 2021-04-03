@@ -11,6 +11,10 @@ module.exports = class Event {
         this.timestamp = Date.now();
     }
 
+    match ({name, data}) {
+        return name === this.name && JSON.stringify(data) === JSON.stringify(this.data);
+    }
+
     serializeForPlayer () {
         return this.serialize();
     }

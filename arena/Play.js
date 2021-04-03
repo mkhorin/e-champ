@@ -23,6 +23,13 @@ module.exports = class Play extends Base {
     }
 
     clear () {
+        this.clearSolvers();
+    }
+
+    clearSolvers () {
+        for (const player of this.room.players) {
+            player.clearSolver?.();
+        }
     }
 
     start () {
@@ -71,6 +78,7 @@ module.exports = class Play extends Base {
     }
 
     async executeAction (data, player) {
+        this.clearSolvers();
         if (!this.game.hasAction(data.action)) {
             return `Action not found: ${data.action}`;
         }
