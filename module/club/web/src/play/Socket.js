@@ -23,12 +23,17 @@ Club.Socket = class Socket {
     open () {
         if (!this._opening) {
             this._opening = $.Deferred();
-            this._socket = new WebSocket(this.getUrl());
-            this._socket.addEventListener('open', this.onOpen.bind(this));
-            this._socket.addEventListener('close', this.onClose.bind(this));
-            this._socket.addEventListener('error', this.onError.bind(this));
+            this._socket = this.createWebSocket(this.getUrl());
         }
         return this._opening;
+    }
+
+    createWebSocket (url) {
+        const socket = new WebSocket(url);
+        socket.addEventListener('open', this.onOpen.bind(this));
+        socket.addEventListener('close', this.onClose.bind(this));
+        socket.addEventListener('error', this.onError.bind(this));
+        return socket;
     }
 
     getUrl () {
