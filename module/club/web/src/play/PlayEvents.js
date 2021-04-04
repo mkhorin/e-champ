@@ -43,10 +43,16 @@ Club.PlayEvents = class PlayEvents {
     }
 
     add (items) {
-        if (Array.isArray(items)) {
+        if (Array.isArray(items) && this.checkStartEvent(items)) {
             this.excludePrediction(items);
             this.items.push(...items);
         }
+    }
+
+    checkStartEvent (items) {
+        return this.items.length
+            || !this.params.startEvent
+            || items[0]?.[0] === this.params.startEvent;
     }
 
     addPrediction (name, data) {

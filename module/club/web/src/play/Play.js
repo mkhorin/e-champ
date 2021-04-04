@@ -16,7 +16,11 @@ Club.Play = class Play extends Club.Element {
     }
 
     createEvents (params) {
-        return new Club.PlayEvents({...params, play: this});
+        return new Club.PlayEvents({
+            play: this,
+            startEvent: 'round',
+            ...params
+        });
     }
 
     getElementRect (selector) {
