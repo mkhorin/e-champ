@@ -3,8 +3,6 @@
  */
 Club.Play = class Play extends Club.Element {
 
-    static ACTION_START = 'start';
-
     constructor () {
         super(...arguments);
         this.motion = new Club.Motion;
@@ -49,7 +47,7 @@ Club.Play = class Play extends Club.Element {
         this.detachSocket();
         this.socket = socket;
         this.socket.on('message', this.socketMessageHandler);
-        this.send(this.constructor.ACTION_START);
+        this.send(); // to get all events
     }
 
     detachSocket () {
