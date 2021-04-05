@@ -21,7 +21,12 @@ Club.MotionElement = class MotionElement {
     start () {
         if (this.source) {
             Club.setElementOffset(...this.source, this.element);
+            return setTimeout(this.execute.bind(this), 0);
         }
+        this.execute();
+    }
+
+    execute () {
         const duration = this.getDuration();
         this.element.classList.add('in-motion');
         this.element.style.transitionDuration = `${duration}s`;
