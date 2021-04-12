@@ -75,15 +75,16 @@ module.exports = class Arena extends Base {
     }
 
     onStartServer () {
+        this.sockets = [];
         this.createSocketServer();
     }
 
     createSocketServer () {
+        const ws = require('ws');
         this.socketServer = new ws.Server({
             server: this.app.server,
             path: this.socketPath
         });
-        this.sockets = [];
         this.socketServer.on('connection', this.onConnectSocket.bind(this));
     }
 
@@ -118,4 +119,3 @@ module.exports.init(module);
 const ArrayHelper = require('areto/helper/ArrayHelper');
 const ClassHelper = require('areto/helper/ClassHelper');
 const DataMap = require('areto/base/DataMap');
-const ws = require('ws');
