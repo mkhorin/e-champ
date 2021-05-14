@@ -15,8 +15,8 @@
         <div class="alert-error alert-danger alert"></div>
 
         <div class="form-attr form-group row" data-handler="FormBoolean">
-            <div class="col-md-3"></div>
-            <div class="col-md-9">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9">
                 <input type="hidden" name="private">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox">
@@ -27,16 +27,16 @@
         </div>
 
         <div class="form-attr form-group row required" data-handler="FormAttr">
-            <label class="col-md-3 col-form-label" data-t="">Your name</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Your name</label>
+            <div class="col-lg-9">
                 <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
                 <div class="error-block"></div>
             </div>
         </div>
 
         <div class="form-attr form-group row required" data-handler="FormGames">
-            <label class="col-md-3 col-form-label" data-t="">Choose a game</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Choose a game</label>
+            <div class="col-lg-9">
                 <input name="game" type="hidden" value="">
                 <div class="form-game-list form-check-list"></div>
                 <template data-id="game">
@@ -50,8 +50,8 @@
         </div>
 
         <div class="form-attr form-group row" data-handler="FormDescription">
-            <label class="col-md-3 col-form-label" data-t="">Description</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Description</label>
+            <div class="col-lg-9">
                 <div class="form-control-plaintext">
                     <a href="#" target="_blank"></a>
                 </div>
@@ -59,8 +59,8 @@
         </div>
 
         <div class="form-attr form-group row required" data-handler="FormOpponents">
-            <label class="col-md-3 col-form-label" data-t="">Choose opponents</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Choose opponents</label>
+            <div class="col-lg-9">
                 <input name="opponents" type="hidden" value="">
                 <div class="new-opponents"></div>
                 <div class="error-block"></div>
@@ -84,16 +84,16 @@
                         <label class="form-check-label" data-t="">Bot</label>
                     </div>
                     <div class="form-opponent-bot">
-                        <select class="form-control" title="Bots">{{bots}}</select>
+                        <select class="form-select" title="Bots">{{bots}}</select>
                     </div>
                 </div>
             </template>
         </div>
 
-        <div class="option-group"></div>
+        <div class="option-group form-group"></div>
 
-        <div class="form-footer form-group row">
-            <div class="col-md-9 offset-md-3">
+        <div class="form-footer row">
+            <div class="col-lg-9 offset-lg-3">
                 <button type="button" class="btn-success btn" data-command="create">
                     <span data-t="">Create</span>
                 </button>
@@ -102,8 +102,8 @@
 
         <template data-id="checkbox">
             <div class="option-attr form-attr form-group row" data-handler="FormBoolean">
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
                     <input type="hidden" name="{{name}}">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox">
@@ -116,8 +116,8 @@
 
         <template data-id="number">
             <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
-                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
-                <div class="col-md-9">
+                <label class="col-lg-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-lg-9">
                     <input name="{{name}}" type="number" class="form-control" value="{{value}}">
                     <div class="error-block"></div>
                     <div class="hint-block" data-t="{{t}}">{{hint}}</div>
@@ -127,8 +127,8 @@
 
         <template data-id="string">
             <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
-                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
-                <div class="col-md-9">
+                <label class="col-lg-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-lg-9">
                     <input name="{{name}}" type="text" class="form-control" value="{{value}}">
                     <div class="error-block"></div>
                     <div class="hint-block" data-t="{{t}}">{{hint}}</div>
@@ -138,9 +138,9 @@
 
         <template data-id="select">
             <div class="option-attr form-attr form-group row {{required}}" data-handler="FormAttr">
-                <label class="col-md-3 col-form-label" data-t="{{t}}">{{label}}</label>
-                <div class="col-md-9">
-                    <select name="{{name}}" class="form-control">{{items}}</select>
+                <label class="col-lg-3 col-form-label" data-t="{{t}}">{{label}}</label>
+                <div class="col-lg-9">
+                    <select name="{{name}}" class="form-select">{{items}}</select>
                     <div class="error-block"></div>
                     <div class="hint-block" data-t="{{t}}">{{hint}}</div>
                 </div>

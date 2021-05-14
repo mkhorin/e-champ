@@ -19,16 +19,16 @@
         </div>
 
         <div class="form-attr form-group row required" data-handler="FormAttr">
-            <label class="col-md-3 col-form-label" data-t="">Your name</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Your name</label>
+            <div class="col-lg-9">
                 <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
                 <div class="error-block"></div>
             </div>
         </div>
 
         <div class="form-attr form-group row" data-handler="FormGames">
-            <label class="col-md-3 col-form-label" data-t="">Public rooms</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Public rooms</label>
+            <div class="col-lg-9">
                 <input name="game" type="hidden" value="">
                 <div class="form-game-list form-check-list">
                     <div class="form-check">
@@ -47,8 +47,8 @@
         </div>
 
         <div class="form-attr form-group row" data-handler="FormDescription">
-            <label class="col-md-3 col-form-label" data-t="">Description</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Description</label>
+            <div class="col-lg-9">
                 <div class="form-control-plaintext">
                     <a href="#" target="_blank"></a>
                 </div>
@@ -56,8 +56,8 @@
         </div>
 
         <div class="form-rooms form-attr form-group row" data-handler="FormRooms">
-            <label class="col-md-3 col-form-label" data-t="">Choose a room</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Choose a room</label>
+            <div class="col-lg-9">
                 <input name="rooms" type="hidden">
                 <div class="form-control-plaintext">
                     <div class="loader">
@@ -93,15 +93,13 @@
         </div>
 
         <div class="form-attr form-group row required">
-            <label class="col-md-3 col-form-label" data-t="">Room ID</label>
-            <div class="col-md-9">
+            <label class="col-lg-3 col-form-label" data-t="">Room ID</label>
+            <div class="col-lg-9">
                 <div class="input-group">
                     <input type="text" name="room" required class="form-control">
-                    <span class="input-group-append">
-                        <button class="btn-outline-info btn" type="button" data-command="join">
-                            <span data-t="">Join</span>
-                        </button>
-                    </span>
+                    <button class="btn-outline-primary btn" type="button" data-command="join">
+                        <span data-t="">Join</span>
+                    </button>
                 </div>
                 <div class="error-block"></div>
             </div>

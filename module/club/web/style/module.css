@@ -135,10 +135,9 @@ body {
     justify-content: flex-start;
     position: relative;
     margin-bottom: 1.5rem;
-    border-left: 2px solid var(--info);
-    background: #e4e8eb;
 }
 .page-head .breadcrumb {
+    align-items: center;
     background: transparent;
     margin: 0;
 }
@@ -176,7 +175,7 @@ body {
     border-left: 1px solid #ddd;
 }
 .user-toggle:hover {
-    color: var(--primary);
+    color: var(--dark-primary);
 }
 .user-toggle .dropdown-toggle {
     padding: 0 1rem;

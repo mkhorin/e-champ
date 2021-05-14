@@ -3,7 +3,7 @@ const link = sort.getLink(Object.keys(sort.getOrders())[0]);
 %>
 <span data-t="">Sort by</span>
 <div class="d-inline-block">
-    <button type="button" class="dropdown-toggle btn-outline-secondary btn" data-toggle="dropdown">
+    <button type="button" class="dropdown-toggle btn-outline-secondary btn" data-bs-toggle="dropdown">
         <span class="fas fa-long-arrow-alt-<%- link.options.class === 'asc' ? 'up' : 'down' %>"></span>
         <span data-t=""><%- link.label %></span>
     </button>
