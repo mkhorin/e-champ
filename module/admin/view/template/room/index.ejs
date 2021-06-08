@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'Rooms') %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Rooms');
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {
