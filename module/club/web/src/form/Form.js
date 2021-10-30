@@ -82,7 +82,8 @@ Club.Form = class Form extends Club.Element {
 
     addError (name, message) {
         const $attr = this.getAttr(name);
-        $attr.addClass('has-error').find('.error-block').html(Jam.t(message));
+        const $block = $attr.addClass('has-error').find('.error-block');
+        $block.html(Jam.t(message, $block.data('t')));
         $attr.parents('.form-set').addClass('has-group-error');
     }
 

@@ -1,3 +1,9 @@
+## 2.3.0
+
+* fix error message translation
+* upgrade dependencies
+* upgrade Node.js version
+
 ## 2.2.0
 
 * update dependencies
