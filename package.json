@@ -13,6 +13,6 @@
     "evado-module-account": "~3.0.0",
     "evado-module-admin": "~5.0.0",
     "sharp": "~0.29.0",
-    "ws": "^8.3.0"
+    "ws": "^8.4.0"
   }
 }
