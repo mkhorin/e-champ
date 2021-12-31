@@ -1,6 +1,6 @@
 {
   "name": "e-champ",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "A server platform for turn-based online games",
   "author": "Maxim Khorin",
   "license": "Apache-2.0",
@@ -9,7 +9,7 @@
     "url": "https://github.com/mkhorin/e-champ.git"
   },
   "dependencies": {
-    "evado": "~5.0.0",
+    "evado": "~5.1.0",
     "evado-module-account": "~3.0.0",
     "evado-module-admin": "~5.0.0",
     "sharp": "~0.29.0",

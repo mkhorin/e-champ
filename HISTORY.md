@@ -1,3 +1,8 @@
+## 2.4.0
+
+* upgrade Evado framework version
+* upgrade dependencies
+
 ## 2.3.0
 
 * fix error message translation
