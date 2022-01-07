@@ -44,9 +44,10 @@ module.exports = class AssetConsole extends Base {
 
     async buildItem (item, message) {
         if (item.assets?.build) {
-            this.log('info', `${message}: ${item.name}`);
+            const root = item.getPath();
+            this.log('info', `${message}: ${item.name}: ${root}`);
             const executor = this.createAssetExecutor(this.assetBuilder);
-            await executor.buildAssets(item.assets.build, item.getPath());
+            await executor.buildAssets(item.assets.build, root);
         }
     }
 
@@ -59,9 +60,10 @@ module.exports = class AssetConsole extends Base {
 
     async deployItem (item, message) {
         if (item.assets?.deploy) {
-            this.log('info', `${message}: ${item.name}`);
+            const root = item.getPath();
+            this.log('info', `${message}: ${item.name}: ${root}`);
             const executor = this.createAssetExecutor(this.assetDeployer);
-            await executor.deployAssets(item.assets.deploy, item.getPath());
+            await executor.deployAssets(item.assets.deploy, root);
         }
     }
 
