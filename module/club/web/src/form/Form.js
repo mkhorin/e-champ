@@ -131,7 +131,7 @@ Club.Form = class Form extends Club.Element {
     }
 
     scrollToError () {
-        Jam.Helper.scrollTo(this.find('.has-error').first());
+        Jam.ScrollHelper.scrollTo(this.find('.has-error').first());
     }
 
     renderOptions ({data, name, attrs, template}) {

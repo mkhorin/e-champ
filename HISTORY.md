@@ -1,3 +1,8 @@
+## 2.5.0
+
+* clarify dependency versions
+* upgrade dependencies
+
 ## 2.4.0
 
 * upgrade Evado framework version
@@ -32,8 +37,8 @@
     - add event predictions to improve UI
     - prevent play events before start
 * module/club/web/src/play/Socket
-    - extract web socket creation method    
-    
+    - extract web socket creation method
+
 ## 1.2.0
 
 * module/club/asset/club/attr/Opponents

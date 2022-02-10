@@ -21,7 +21,7 @@ Club.Page = class Page extends Club.Element {
         }
         this.toggleClass('active', true);
         Jam.Helper.bindLabelsToInputs(this.$container);
-        Jam.Helper.scrollTo(0);
+        Jam.ScrollHelper.scrollTo(0);
     }
 
     deactivate () {
