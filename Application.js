@@ -6,7 +6,7 @@
 const Base = require('evado/Application');
 
 module.exports = class ChampApplication extends Base {
-    
+
     constructor (config) {
         super({
             original: Base,

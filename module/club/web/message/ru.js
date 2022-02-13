@@ -3,7 +3,7 @@
 Object.assign(Jam.I18n.defaults, {
 
     'All games': 'Все игры',
-    
+
     'Back': 'Назад',
 
     'Choose a game': 'Выберите игру',

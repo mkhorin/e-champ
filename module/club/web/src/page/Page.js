@@ -38,7 +38,7 @@ Club.Page = class Page extends Club.Element {
     }
 
     toggleAlert (state, message) {
-        this.toggleClass('has-alert', state);        
+        this.toggleClass('has-alert', state);
         return this.find('.alert-error').first()
             .toggleClass('has-error', state)
             .html(Jam.t(message));

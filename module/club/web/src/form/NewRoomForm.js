@@ -23,7 +23,7 @@ Club.NewRoomForm = class NewRoomForm extends Club.Form {
         this.createGameOptions();
     }
 
-    createGameOptions () {        
+    createGameOptions () {
         const $group = this.$optionGroup.empty();
         const attrs = this.game?.optionAttrs;
         if (Array.isArray(attrs)) {
