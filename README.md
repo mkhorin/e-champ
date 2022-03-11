@@ -13,6 +13,6 @@ which are also created as separate modules.
 
 - [E-Champ App](https://github.com/mkhorin/e-champ-app)
 
-[![E-Champ platform](doc/club-main.png)](http://nervebit.com/e-champ)
+[![E-Champ platform](doc/club-main.png)](https://mkhorin.github.io/e-champ-site)
 
 Built on [Evado Declarative Framework](https://github.com/mkhorin/evado).
