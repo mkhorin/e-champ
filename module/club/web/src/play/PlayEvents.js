@@ -57,7 +57,7 @@ Club.PlayEvents = class PlayEvents {
 
     addPrediction (name, data) {
         if (this.prediction) {
-            throw Error('Previous prediction not yet approved');
+            throw new Error('Previous prediction not yet approved');
         }
         this.prediction = [name, data];
         this.items.push(this.prediction);

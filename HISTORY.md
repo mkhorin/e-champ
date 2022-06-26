@@ -1,3 +1,14 @@
+## 2.7.0
+
+* module/club/web/src/play/PlayEvents
+    - fix error instancing
+* upgrade dependencies
+
+## 2.6.0
+
+* remove trailing spaces
+* upgrade dependencies
+
 ## 2.5.0
 
 * clarify dependency versions
