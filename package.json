@@ -1,6 +1,6 @@
 {
   "name": "e-champ",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "A server platform for turn-based online games",
   "author": "Maxim Khorin",
   "license": "Apache-2.0",
@@ -12,7 +12,7 @@
     "evado": "~5.4.0",
     "evado-module-account": "~3.0.1",
     "evado-module-admin": "~5.2.3",
-    "sharp": "~0.30.0",
-    "ws": "~8.8.0"
+    "sharp": "~0.31.0",
+    "ws": "~8.9.0"
   }
 }
