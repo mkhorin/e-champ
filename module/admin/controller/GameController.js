@@ -28,8 +28,9 @@ module.exports = class GameController extends Base {
     }
 
     async actionUpdate () {
+        const {id} = this.getQueryParams();
         const model = this.createModel();
-        const game = model.getGame(this.getQueryParam('id'));
+        const game = model.getGame(id);
         if (!game) {
             throw new NotFound('Game not found');
         }

@@ -47,6 +47,8 @@ Club.FormAttr = class FormAttr extends Club.Element {
     }
 
     toggleDisabled (state) {
-        state ? this.$value.attr('disabled', true) : this.$value.removeAttr('disabled');
+        state
+            ? this.$value.attr('disabled', true)
+            : this.$value.removeAttr('disabled');
     }
 };

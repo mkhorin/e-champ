@@ -17,8 +17,9 @@ Club.CardPlay = class CardPlay extends Club.Play {
     }
 
     setCardSize () {
-        this.cardWidth = this.cards?.get(0).element.offsetWidth;
-        this.cardHeight = this.cards?.get(0).element.offsetHeight;
+        const element = this.cards?.get(0).element;
+        this.cardWidth = element?.offsetWidth;
+        this.cardHeight = element?.offsetHeight;
     }
 
     createCards (total) {
@@ -40,16 +41,25 @@ Club.CardPlay = class CardPlay extends Club.Play {
         this.find('.card').remove();
     }
 
-    moveCard (card, offset, duration = Club.Card.MOVE_DURATION, delay = Club.Card.MOVE_DELAY) {
+    moveCard (card, offset, duration, delay) {
         return this.motion.move({
             element: card.element,
             target: offset,
-            delay: this.motion.count() * delay,
-            duration
+            delay: this.motion.count() * (delay || Club.Card.MOVE_DELAY),
+            duration: duration || Club.Card.MOVE_DURATION
         });
     }
 
     setDeckSkin () {
-        this.setDataAttr('deck', Jam.i18n.getLanguage() === 'ru' ? 'slavic': 'german');
+        const language = Jam.i18n.getLanguage();
+        const skin = this.getDeckSkinByLanguage(language);
+        this.setDataAttr('deck', skin);
+    }
+
+    getDeckSkinByLanguage (language) {
+        switch (language) {
+            case 'ru': return 'slavic';
+        }
+        return 'german';
     }
 };

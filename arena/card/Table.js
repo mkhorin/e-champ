@@ -120,6 +120,8 @@ module.exports = class Table {
     }
 
     serialize () {
-        return this.pairs.map(p => p[1] ? [p[0].data, p[1].data] : [p[0].data]);
+        return this.pairs.map(p => p[1]
+            ? [p[0].data, p[1].data]
+            : [p[0].data]);
     }
 };

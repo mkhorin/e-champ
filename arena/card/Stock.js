@@ -8,13 +8,16 @@ const Base = require('./CardSet');
 module.exports = class Stock extends Base {
 
     getDealCards (num) {
-        num = this.count() > num ? num : this.count();
+        const counter = this.count();
+        if (counter <= num) {
+            num = counter;
+        }
         return this.splice(-num, num).reverse();
     }
 
-    shuffle ({maxOneColorSequence} = {}) {
+    shuffle ({maxOneColorSequence: max} = {}) {
         super.shuffle();
-        if (maxOneColorSequence && this.checkOneColorSequence(maxOneColorSequence)) {
+        if (max && this.checkOneColorSequence(max)) {
             this.shuffle();
         }
     }

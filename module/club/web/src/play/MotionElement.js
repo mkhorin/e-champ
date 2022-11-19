@@ -32,7 +32,8 @@ Club.MotionElement = class MotionElement {
         this.element.style.transitionDuration = `${duration}s`;
         this.element.style.transitionDelay = `${this.delay}s`;
         Club.setElementOffset(...this.target, this.element);
-        setTimeout(this.onFinish.bind(this), (duration + this.delay) * 1000 + 10);
+        const timeout = (duration + this.delay) * 1000 + 10;
+        setTimeout(this.onFinish.bind(this), timeout);
     }
 
     getDuration () {

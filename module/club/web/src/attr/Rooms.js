@@ -33,7 +33,9 @@ Club.FormRooms = class FormRooms extends Club.FormAttr {
 
     render () {
         const game = this.gameFilter.getValue();
-        const items = game ? this.items.filter(item => item.name === game) : this.items;
+        const items = game
+            ? this.items.filter(item => item.name === game)
+            : this.items;
         const result = items.map(this.renderItem, this);
         this.find('.list').html(result.join(''));
         this.toggleClass('empty', !items.length);

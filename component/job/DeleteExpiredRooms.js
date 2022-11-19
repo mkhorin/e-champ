@@ -22,7 +22,8 @@ module.exports = class DeleteExpiredRooms extends Base {
         const arena = this.module.getArena();
         const minDate = this.getEarliestValidDate(this.lastEventDuration);
         for (const room of arena.rooms) {
-            const date = room.play?.events.getLast()?.timestamp || room.createdAt;
+            const event = room.play?.events.getLast();
+            const date = event?.timestamp || room.createdAt;
             if (date < minDate) {
                 await room.remove();
                 this.log('info', `Room removed: ${room.id}`);

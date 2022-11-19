@@ -37,7 +37,8 @@ Club.Socket = class Socket {
     }
 
     getUrl () {
-        return `${location.protocol.replace('http', 'ws')}//${location.host}${this.path}`;
+        const protocol = location.protocol.replace('http', 'ws'); 
+        return `${protocol}//${location.host}${this.path}`;
     }
 
     onOpen () {

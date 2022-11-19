@@ -20,6 +20,8 @@ Club.FormBoolean = class FormBoolean extends Club.FormAttr {
     }
 
     toggleDisabled (state) {
-        state ? this.$checkbox.attr('disabled', true) : this.$checkbox.removeAttr('disabled');
+        state
+            ? this.$checkbox.attr('disabled', true)
+            : this.$checkbox.removeAttr('disabled');
     }
 };

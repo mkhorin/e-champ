@@ -10,7 +10,7 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
         super.init();
         this.$list = this.find('.new-opponents');
         this.on('change', '.form-opponent input', this.onChangeItemType.bind(this));
-        this.on('change', '.form-opponent select', this.onChangeSelect.bind(this));
+        this.on('change', '.form-opponent select', this.onChangeSelection.bind(this));
         this.form.gameAttr.on('change', this.onChangeGame.bind(this));
         this.onChangeGame();
     }
@@ -93,7 +93,7 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
         this.clearErrors();
     }
 
-    onChangeSelect () {
+    onChangeSelection () {
         this.refreshValue();
     }
 };

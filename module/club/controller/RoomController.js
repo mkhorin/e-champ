@@ -82,7 +82,7 @@ module.exports = class RoomController extends Base {
     }
 
     actionPlayback () {
-        const name = this.getPostParam('game');
+        const {game: name} = this.getPostParams();
         const game = this.module.getArena().getGame(name);
         if (!game) {
             throw new BadRequest('Game not found');
@@ -91,8 +91,9 @@ module.exports = class RoomController extends Base {
         return this.render(template, {game});
     }
 
-    getRoom (id = this.getPostParam('room')) {
-        const room = this.module.getArena().getRoom([id]);
+    getRoom (id) {
+        let {room} = this.getPostParams();
+        room = this.module.getArena().getRoom(id || room);
         if (!room) {
             throw new BadRequest('Room not found');
         }

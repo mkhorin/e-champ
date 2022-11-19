@@ -22,7 +22,8 @@ module.exports = class Bot extends Base {
 
     attachStaticSource () {
         if (this.staticSource) {
-            this.game.arena.attachStaticDirectory(this.getStaticRoute(), this.getPath(this.staticSource));
+            const path = this.getPath(this.staticSource);
+            this.game.arena.attachStaticDirectory(this.getStaticRoute(), path);
         }
     }
 

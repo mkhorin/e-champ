@@ -23,7 +23,9 @@ module.exports = class Game extends Base {
         const games = this.arena.games.values();
         const maxSize = games.length;
         const totalSize = games.length;
-        const items = games.slice(start, start + length).map(this.getGameListData, this);
+        const items = games
+            .slice(start, start + length)
+            .map(this.getGameListData, this);
         return {items, maxSize, totalSize};
     }
 

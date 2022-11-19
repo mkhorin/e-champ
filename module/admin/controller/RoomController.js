@@ -28,8 +28,9 @@ module.exports = class RoomController extends Base {
     }
 
     async actionUpdate () {
+        const {id} = this.getQueryParams();
         const model = this.createModel();
-        const room = model.getRoom(this.getQueryParam('id'));
+        const room = model.getRoom(id);
         if (!room) {
             throw new NotFound('Room not found');
         }
@@ -37,8 +38,9 @@ module.exports = class RoomController extends Base {
     }
 
     async actionDelete () {
+        const {id} = this.getPostParams();
         const model = this.createModel();
-        const room = model.getRoom(this.getPostParam('id'));
+        const room = model.getRoom(id);
         if (!room) {
             throw new NotFound('Room not found');
         }

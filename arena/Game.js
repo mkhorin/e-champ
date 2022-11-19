@@ -32,7 +32,9 @@ module.exports = class Game extends Base {
     }
 
     getEventConfig (name) {
-        return this.events.hasOwnProperty(name) ? this.events[name] : this.event;
+        return this.events.hasOwnProperty(name)
+            ? this.events[name]
+            : this.event;
     }
 
     getPath () {

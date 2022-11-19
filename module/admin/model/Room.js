@@ -26,14 +26,18 @@ module.exports = class Room extends Base {
         const maxSize = rooms.length;
         rooms = this.searchRooms(search, rooms);
         const totalSize = rooms.length;
-        const items = rooms.slice(start, start + length).map(this.getRoomListData, this);
+        const items = rooms
+            .slice(start, start + length)
+            .map(this.getRoomListData, this);
         return {items, maxSize, totalSize};
     }
 
     searchRooms (search, rooms) {
         if (search) {
             const regex = new RegExp(search, 'i');
-            rooms = rooms.filter(room => room.id === search || regex.test(room.game.name));
+            rooms = rooms.filter(({id, game}) => {
+                return id === search || regex.test(game.name);
+            });
         }
         return rooms;
     }

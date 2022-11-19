@@ -33,7 +33,12 @@ class Club {
         const regex = new RegExp(`${start}(\\w+)${end}`, 'gm');
         return text.replace(regex, (match, key)=> {
             const value = data[key];
-            return data.hasOwnProperty(key) && value !== undefined && value !== null ? value : '';
+            if (value !== undefined && value !== null) {
+                if (data.hasOwnProperty(key)) {
+                    return value;
+                }
+            }
+            return '';
         });
     }
 
@@ -50,12 +55,15 @@ class Club {
     }
 
     static escapeHtml (value) {
-        return typeof value === 'string' ? value.replace(/</g, '&lt;').replace(/>/g, '&gt;') : value;
+        return typeof value === 'string'
+            ? value.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            : value;
     }
 
     static createHandlers (club, container) {
         const handlers = [];
-        for (const element of container.querySelectorAll('[data-handler]')) {
+        const elements = container.querySelectorAll('[data-handler]');
+        for (const element of elements) {
             const name = $(element).data('handler');
             if (typeof name === 'string') {
                 const Class = this.getElementClass(name);
@@ -142,9 +150,11 @@ class Club {
     }
 
     resolvePlayerName ({type, name}, game) {
-        return type === 'bot'
-            ? game.bots.filter(data => data.name === name)[0]?.label || name
-            : name;
+        if (type === 'bot') {
+            const bots = game.bots.filter(data => data.name === name);
+            return bots[0]?.label || name;
+        }
+        return name;
     }
 
     translateBots (game) {
