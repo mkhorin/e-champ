@@ -65,10 +65,12 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
 
     getValue (name) {
         const result = [];
-        for (const element of this.find('.form-opponent')) {
-            result.push(this.getItemValue($(element)));
+        const elements = this.find('.form-opponent');
+        for (const element of elements) {
+            const value = this.getItemValue($(element));
+            result.push(value);
         }
-        return result.filter(value => !!value).join();
+        return result.filter(v => !!v).join();
     }
 
     getItemValue ($element) {

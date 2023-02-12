@@ -174,7 +174,7 @@ Club.PlayEvents = class PlayEvents {
     }
 
     resolveHiddenIndex () {
-        if (document.hidden && this.hiddenIndex < this.cursor  ) {
+        if (document.hidden && this.hiddenIndex < this.cursor) {
             this.hiddenIndex = this.count() - 1;
         }
     }

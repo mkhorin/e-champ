@@ -1,108 +1,108 @@
 <!-- default/_join -->
 <div class="page" data-page="join" data-handler="JoinPage">
 
-    <div class="page-head">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Club</a></li>
-            <li class="breadcrumb-item" data-t="">Join</li>
-        </ol>
+  <div class="page-head">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Club</a></li>
+      <li class="breadcrumb-item" data-t="">Join</li>
+    </ol>
+  </div>
+
+  <h1 data-t="">Join a room</h1>
+
+  <div class="form-pane form" data-handler="JoinRoomForm">
+
+    <div class="alert-error alert-danger alert"></div>
+
+    <div class="form-attr form-group hidden">
+      <input type="hidden" name="player">
     </div>
 
-    <h1 data-t="">Join a room</h1>
-
-    <div class="form-pane form" data-handler="JoinRoomForm">
-
-        <div class="alert-error alert-danger alert"></div>
-
-        <div class="form-attr form-group hidden">
-            <input type="hidden" name="player">
-        </div>
-
-        <div class="form-attr form-group row required" data-handler="FormAttr">
-            <label class="col-lg-3 col-form-label" data-t="">Your name</label>
-            <div class="col-lg-9">
-                <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
-                <div class="error-block"></div>
-            </div>
-        </div>
-
-        <div class="form-attr form-group row" data-handler="FormGames">
-            <label class="col-lg-3 col-form-label" data-t="">Public rooms</label>
-            <div class="col-lg-9">
-                <input name="game" type="hidden" value="">
-                <div class="form-game-list form-check-list">
-                    <div class="form-check">
-                        <input class="form-check-input" value="" type="radio">
-                        <label class="form-check-label" data-t="">All games</label>
-                    </div>
-                </div>
-                <template data-id="game">
-                    <div class="form-check">
-                        <input class="form-check-input" value="{{name}}" type="radio">
-                        <label class="form-check-label">{{label}}</label>
-                    </div>
-                </template>
-                <div class="error-block"></div>
-            </div>
-        </div>
-
-        <div class="form-attr form-group row" data-handler="FormDescription">
-            <label class="col-lg-3 col-form-label" data-t="">Description</label>
-            <div class="col-lg-9">
-                <div class="form-control-plaintext">
-                    <a href="#" target="_blank"></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-rooms form-attr form-group row" data-handler="FormRooms">
-            <label class="col-lg-3 col-form-label" data-t="">Choose a room</label>
-            <div class="col-lg-9">
-                <input name="rooms" type="hidden">
-                <div class="form-control-plaintext">
-                    <div class="loader">
-                        <i class="fa fa-spinner fa-spin"></i>
-                    </div>
-                    <div class="alert-warning alert">
-                        <span data-t="">No public rooms found</span>
-                    </div>
-                    <div class="list"></div>
-                </div>
-
-                <template data-id="item">
-                    <div class="item" data-id="{{room}}">
-                        <div class="item-head">
-                            <div class="item-game">{{label}}</div>
-                            {{params}}
-                            <button class="join btn-primary btn" type="button">{{join}}</button>
-                        </div>
-                        <div class="item-body">{{options}}</div>
-                    </div>
-                </template>
-
-                <template data-id="param">
-                    <div class="item-param">{{label}} - {{value}}</div>
-                </template>
-
-                <template data-id="option">
-                    <div class="item-option">
-                        <label>{{label}}:</label> {{value}}
-                    </div>
-                </template>
-            </div>
-        </div>
-
-        <div class="form-attr form-group row required">
-            <label class="col-lg-3 col-form-label" data-t="">Room ID</label>
-            <div class="col-lg-9">
-                <div class="input-group">
-                    <input type="text" name="room" required class="form-control">
-                    <button class="btn-outline-primary btn" type="button" data-command="join">
-                        <span data-t="">Join</span>
-                    </button>
-                </div>
-                <div class="error-block"></div>
-            </div>
-        </div>
+    <div class="form-attr form-group row required" data-handler="FormAttr">
+      <label class="col-lg-3 col-form-label" data-t="">Your name</label>
+      <div class="col-lg-9">
+        <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
+        <div class="error-block"></div>
+      </div>
     </div>
+
+    <div class="form-attr form-group row" data-handler="FormGames">
+      <label class="col-lg-3 col-form-label" data-t="">Public rooms</label>
+      <div class="col-lg-9">
+        <input name="game" type="hidden" value="">
+        <div class="form-game-list form-check-list">
+          <div class="form-check">
+            <input class="form-check-input" value="" type="radio">
+            <label class="form-check-label" data-t="">All games</label>
+          </div>
+        </div>
+        <template data-id="game">
+          <div class="form-check">
+            <input class="form-check-input" value="{{name}}" type="radio">
+            <label class="form-check-label">{{label}}</label>
+          </div>
+        </template>
+        <div class="error-block"></div>
+      </div>
+    </div>
+
+    <div class="form-attr form-group row" data-handler="FormDescription">
+      <label class="col-lg-3 col-form-label" data-t="">Description</label>
+      <div class="col-lg-9">
+        <div class="form-control-plaintext">
+          <a href="#" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-rooms form-attr form-group row" data-handler="FormRooms">
+      <label class="col-lg-3 col-form-label" data-t="">Choose a room</label>
+      <div class="col-lg-9">
+        <input name="rooms" type="hidden">
+        <div class="form-control-plaintext">
+          <div class="loader">
+            <i class="fa fa-spinner fa-spin"></i>
+          </div>
+          <div class="alert-warning alert">
+            <span data-t="">No public rooms found</span>
+          </div>
+          <div class="list"></div>
+        </div>
+
+        <template data-id="item">
+          <div class="item" data-id="{{room}}">
+            <div class="item-head">
+              <div class="item-game">{{label}}</div>
+              {{params}}
+              <button class="join btn-primary btn" type="button">{{join}}</button>
+            </div>
+            <div class="item-body">{{options}}</div>
+          </div>
+        </template>
+
+        <template data-id="param">
+          <div class="item-param">{{label}} - {{value}}</div>
+        </template>
+
+        <template data-id="option">
+          <div class="item-option">
+            <label>{{label}}:</label> {{value}}
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="form-attr form-group row required">
+      <label class="col-lg-3 col-form-label" data-t="">Room ID</label>
+      <div class="col-lg-9">
+        <div class="input-group">
+          <input type="text" name="room" required class="form-control">
+          <button class="btn-outline-primary btn" type="button" data-command="join">
+            <span data-t="">Join</span>
+          </button>
+        </div>
+        <div class="error-block"></div>
+      </div>
+    </div>
+  </div>
 </div>

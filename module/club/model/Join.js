@@ -18,11 +18,14 @@ module.exports = class Join extends Base {
     isBusyName (player) {
         const name = this.get('name').toLowerCase();
         for (const opponent of this.room.players) {
-            if (opponent !== player && opponent.name?.toLowerCase() === name) {
-                this.addError('name', 'This name is already taken');
-                return true;
+            if (opponent !== player) {
+                if (opponent.name?.toLowerCase() === name) {
+                    this.addError('name', 'This name is already taken');
+                    return true;
+                }
             }
         }
+        return false;
     }
 
     validateRoom (attr) {

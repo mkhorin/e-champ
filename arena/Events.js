@@ -22,7 +22,8 @@ module.exports = class Events extends Base {
 
     add (name, data) {
         const {Class} = this.play.game.getEventConfig(name);
-        this.events.push(new Class(name, data));
+        const event = new Class(name, data);
+        this.events.push(event);
     }
 
     removeFrom (start) {
@@ -42,7 +43,8 @@ module.exports = class Events extends Base {
     serializeForPlayer (player, cursor = this.cursor) {
         const result = [];
         for (let i = cursor; i < this.events.length; ++i) {
-            result.push(this.events[i].serializeForPlayer(player));
+            const data = this.events[i].serializeForPlayer(player);
+            result.push(data);
         }
         return result;
     }
@@ -50,7 +52,8 @@ module.exports = class Events extends Base {
     serializeAll () {
         const result = [];
         for (const event of this.events) {
-            result.push(event.serialize());
+            const data = event.serialize();
+            result.push(data);
         }
         return result;
     }

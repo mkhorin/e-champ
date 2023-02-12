@@ -1,33 +1,33 @@
 <% layout(_view.get('_layout/main')) %>
 
 <header class="main-header">
-    <nav class="navbar-super navbar navbar-dark">
-        <%- include(_view.get('_part/nav/logo')) %>
-    </nav>
-    <nav class="navbar navbar-expand-md navbar-dark">
+  <nav class="navbar-super navbar navbar-dark">
+    <%- include(_view.get('_part/nav/logo')) %>
+  </nav>
+  <nav class="navbar navbar-expand-md navbar-dark">
 
-        <%- include(_view.get('_part/nav/logo')) %>
-        <%- include(_view.get('_part/nav/commonMenu')) %>
+    <%- include(_view.get('_part/nav/logo')) %>
+    <%- include(_view.get('_part/nav/commonMenu')) %>
 
-        <div class="ms-auto"></div>
+    <div class="ms-auto"></div>
 
-        <%- _view.placeWidget('notifications') %>
-        <%- include(_view.get('_part/nav/user')) %>
-        <%- include(_view.get('_part/nav/language')) %>
-    </nav>
+    <%- _view.placeWidget('notifications') %>
+    <%- include(_view.get('_part/nav/user')) %>
+    <%- include(_view.get('_part/nav/language')) %>
+  </nav>
 </header>
 
 <section class="main-content">
-    <div class="main-container container">
+  <div class="main-container container">
 
-        <%- include(_view.get('_part/misc/alert')) %>
+    <%- include(_view.get('_part/misc/alert')) %>
 
-        <%- body %>
+    <%- body %>
 
-    </div>
-    <%- include(_view.get('_part/misc/footer')) %>
+  </div>
+  <%- include(_view.get('_part/misc/footer')) %>
 </section>
 
 <div class="global-loader overlay">
-    <i class="fa fa-spinner fa-spin"></i>
+  <i class="fa fa-spinner fa-spin"></i>
 </div>

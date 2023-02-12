@@ -1,9 +1,9 @@
 <%
 layout(_view.get('_layout/frame/form'), {
-    params: {
-        id: game.name,
-        save: false
-    }
+  params: {
+    id: game.name,
+    save: false
+  }
 });
 block('tab', 'Game');
 block('title', game.label);
@@ -12,35 +12,35 @@ const staticTemplate = _view.get('_part/attr/static');
 %>
 
 <%- include(staticTemplate, {
-    attr: 'name',
-    value: game.name
+  attr: 'name',
+  value: game.name
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'label',
-    value: game.label,
-    translateValue: game.name
+  attr: 'label',
+  value: game.label,
+  translateValue: game.name
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'webPage',
-    value: _format(game.webPage, 'url', {target: '_blank'})
+  attr: 'webPage',
+  value: _format(game.webPage, 'url', {target: '_blank'})
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'maxPlayers',
-    value: game.maxPlayers
+  attr: 'maxPlayers',
+  value: game.maxPlayers
 }) %>
 
 <%- include(_view.get('_part/attr/custom'), {
-    attr: 'bots',
-    content: {
-        template: _view.getInternalTemplate('_bots')
-    }
+  attr: 'bots',
+  content: {
+    template: _view.getInternalTemplate('_bots')
+  }
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'defaultBot',
-    value: game.defaultBot.translateLabel(_controller.language)
+  attr: 'defaultBot',
+  value: game.defaultBot.translateLabel(_controller.language)
 }) %>
 

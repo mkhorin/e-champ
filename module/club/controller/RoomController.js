@@ -31,7 +31,8 @@ module.exports = class RoomController extends Base {
         const result = [];
         for (const room of arena.rooms) {
             if (room.isPublicNew()) {
-                result.push(room.getGatheringData());
+                const data = room.getGatheringData();
+                result.push(data);
             }
         }
         this.sendJson(result);
@@ -54,7 +55,8 @@ module.exports = class RoomController extends Base {
         }
         player.setUser(model.get('name'), ip);
         if (!room.start()) {
-            room.broadcastCommonData(room.getGatheringData());
+            const data = room.getGatheringData();
+            room.broadcastCommonData(data);
         }
         this.sendJson({
             room: room.id,
@@ -78,7 +80,8 @@ module.exports = class RoomController extends Base {
         if (!play.isFinished()) {
             throw new BadRequest('Room is still playing');
         }
-        this.sendJson(play.serialize());
+        const data = play.serialize();
+        this.sendJson(data);
     }
 
     actionPlayback () {
@@ -101,7 +104,9 @@ module.exports = class RoomController extends Base {
     }
 
     sendModelErrors (model) {
-        return this.send(this.translateMessageMap(model.getFirstErrorMap()), 400);
+        const errors = model.getFirstErrorMap();
+        const data = this.translateMessageMap(errors);
+        return this.send(data, 400);
     }
 };
 module.exports.init(module);

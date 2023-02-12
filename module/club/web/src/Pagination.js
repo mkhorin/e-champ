@@ -77,7 +77,8 @@ Club.Pagination = class Pagination {
         for (let page = 0; page < this.numPages; ++page) {
             const active = page === this.page ? 'active' : '';
             const text = page + 1;
-            result.push(this.list.resolveTemplate('page', {active, page, text}));
+            const content = this.list.resolveTemplate('page', {active, page, text});
+            result.push(content);
         }
         return result.join('');
     }

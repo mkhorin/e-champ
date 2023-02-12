@@ -26,7 +26,8 @@ Club.CardPlay = class CardPlay extends Club.Play {
         this.clearCards();
         this.cards = this.createCardList();
         for (let i = 0; i < total; ++i) {
-            this.cards.add(new Club.Card(this.$container));
+            let card = new Club.Card(this.$container);
+            this.cards.add(card);
         }
     }
 

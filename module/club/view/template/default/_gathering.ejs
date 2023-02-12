@@ -1,98 +1,98 @@
 <!-- default/_gathering -->
 <div class="page" data-page="gathering" data-handler="GatheringPage">
 
-    <div class="page-head">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Club</a></li>
-            <li class="breadcrumb-item" data-t="">Gathering</li>
-        </ol>
+  <div class="page-head">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#" data-action="main" data-t="">Club</a></li>
+      <li class="breadcrumb-item" data-t="">Gathering</li>
+    </ol>
+  </div>
+
+  <h1 data-t="">Gathering of players</h1>
+
+  <div class="page-loader">
+    <i class="fa fa-spinner fa-spin"></i>
+    <span data-t="">Loading...</span>
+  </div>
+
+  <div class="alert-error alert-danger alert"></div>
+
+  <div class="on-page-alert">
+    <div class="main-controls row">
+      <div class="offset-lg-3 col-lg-3 col-md-6">
+        <button class="btn-success btn" data-command="create">
+          <span data-t="">Create</span>
+        </button>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <button class="btn-primary btn" data-command="join">
+          <span data-t="">Join</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-pane form" data-handler="GatheringForm">
+
+    <div class="form-attr form-group row">
+      <label class="col-lg-3 col-form-label" data-t="">Room ID</label>
+      <div class="col-lg-9">
+        <div class="form-control-plaintext" data-name="room"></div>
+      </div>
     </div>
 
-    <h1 data-t="">Gathering of players</h1>
-
-    <div class="page-loader">
-        <i class="fa fa-spinner fa-spin"></i>
-        <span data-t="">Loading...</span>
+    <div class="form-attr form-group row">
+      <label class="col-lg-3 col-form-label" data-t="">Public room</label>
+      <div class="col-lg-9">
+        <div class="form-control-plaintext" data-name="public"></div>
+      </div>
     </div>
 
-    <div class="alert-error alert-danger alert"></div>
-
-    <div class="on-page-alert">
-        <div class="main-controls row">
-            <div class="offset-lg-3 col-lg-3 col-md-6">
-                <button class="btn-success btn" data-command="create">
-                    <span data-t="">Create</span>
-                </button>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <button class="btn-primary btn" data-command="join">
-                    <span data-t="">Join</span>
-                </button>
-            </div>
-        </div>
+    <div class="form-attr form-group row">
+      <label class="col-lg-3 col-form-label" data-t="">Game</label>
+      <div class="col-lg-9">
+        <div class="form-control-plaintext" data-name="game"></div>
+      </div>
     </div>
 
-    <div class="form-pane form" data-handler="GatheringForm">
-
-        <div class="form-attr form-group row">
-            <label class="col-lg-3 col-form-label" data-t="">Room ID</label>
-            <div class="col-lg-9">
-                <div class="form-control-plaintext" data-name="room"></div>
-            </div>
+    <div class="form-attr form-group row">
+      <label class="col-lg-3 col-form-label" data-t="">Players</label>
+      <div class="col-lg-9">
+        <div data-name="opponents">
+          <div class="gathering-opponents"></div>
         </div>
-
-        <div class="form-attr form-group row">
-            <label class="col-lg-3 col-form-label" data-t="">Public room</label>
-            <div class="col-lg-9">
-                <div class="form-control-plaintext" data-name="public"></div>
-            </div>
-        </div>
-
-        <div class="form-attr form-group row">
-            <label class="col-lg-3 col-form-label" data-t="">Game</label>
-            <div class="col-lg-9">
-                <div class="form-control-plaintext" data-name="game"></div>
-            </div>
-        </div>
-
-        <div class="form-attr form-group row">
-            <label class="col-lg-3 col-form-label" data-t="">Players</label>
-            <div class="col-lg-9">
-                <div data-name="opponents">
-                    <div class="gathering-opponents"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="option-group form-group"></div>
-
-        <template data-id="static">
-            <div class="option-attr form-attr form-group row">
-                <label class="col-lg-3 col-form-label" data-t="{{t}}">{{label}}</label>
-                <div class="col-lg-9">
-                    <div class="form-control-plaintext">{{value}}</div>
-                </div>
-            </div>
-        </template>
-
-        <template data-id="player">
-            <div class="form-opponent" data-type="{{type}}" data-status="{{status}}">
-                <div class="form-opponent-title">
-                    <span data-t="">Player</span>
-                    {{number}}
-                </div>
-                <div class="form-opponent-free form-opponent-status">
-                    <span class="fa-sync-alt fa-spin fa"></span>
-                    <span data-t="">Free</span>
-                </div>
-                <div class="form-opponent-ready form-opponent-status">
-                    <span data-t="">Ready</span>
-                </div>
-                <div class="form-opponent-name">
-                    <span class="form-opponent-bot-label">[Bot]</span>
-                    {{name}}
-                </div>
-            </div>
-        </template>
+      </div>
     </div>
+
+    <div class="option-group form-group"></div>
+
+    <template data-id="static">
+      <div class="option-attr form-attr form-group row">
+        <label class="col-lg-3 col-form-label" data-t="{{t}}">{{label}}</label>
+        <div class="col-lg-9">
+          <div class="form-control-plaintext">{{value}}</div>
+        </div>
+      </div>
+    </template>
+
+    <template data-id="player">
+      <div class="form-opponent" data-type="{{type}}" data-status="{{status}}">
+        <div class="form-opponent-title">
+          <span data-t="">Player</span>
+          {{number}}
+        </div>
+        <div class="form-opponent-free form-opponent-status">
+          <span class="fa-sync-alt fa-spin fa"></span>
+          <span data-t="">Free</span>
+        </div>
+        <div class="form-opponent-ready form-opponent-status">
+          <span data-t="">Ready</span>
+        </div>
+        <div class="form-opponent-name">
+          <span class="form-opponent-bot-label">[Bot]</span>
+          {{name}}
+        </div>
+      </div>
+    </template>
+  </div>
 </div>

@@ -1,52 +1,52 @@
 <!-- default/_main -->
 <div class="page" data-page="main" data-handler="MainPage">
 
-    <h1>Game club</h1>
+  <h1>Game club</h1>
 
-    <div class="alert alert-info">
-        To start playing, create a new room, join an existing one, or return to the current one.
+  <div class="alert alert-info">
+    To start playing, create a new room, join an existing one, or return to the current one.
+  </div>
+
+  <%- include(_view.get('_part/mainControls')) %>
+
+  <div class="main-description">
+    <div class="folder card">
+      <div class="card-body">
+        <h4 class="text-success">Create</h4>
+        <p>
+          Here you can create a new room.
+          Select a game you want to play and its options.
+          Choose the types and number of opponents.
+          <br>
+          Public rooms are available for everyone to join.
+          To access a hidden room, you need to reveal its identifier.
+        </p>
+      </div>
     </div>
-
-    <%- include(_view.get('_part/mainControls')) %>
-
-    <div class="main-description">
-        <div class="folder card">
-            <div class="card-body">
-                <h4 class="text-success">Create</h4>
-                <p>
-                    Here you can create a new room.
-                    Select a game you want to play and its options.
-                    Choose the types and number of opponents.
-                    <br>
-                    Public rooms are available for everyone to join.
-                    To access a hidden room, you need to reveal its identifier.
-                </p>
-            </div>
-        </div>
-        <div class="folder card">
-            <div class="card-body">
-                <h4 class="text-primary">Join</h4>
-                <p>
-                    Here you can join a room that gathers participants.
-                    Public rooms are available on the list.
-                    To join a hidden room, you must explicitly provide its identifier.
-                </p>
-            </div>
-        </div>
-        <div class="folder card">
-            <div class="card-body">
-                <h4 class="text-danger">Play</h4>
-                <p>
-                    All participants gather here before playing.
-                    Once started, you can return to the current game after reloading the browser page.
-                </p>
-            </div>
-        </div>
-        <div class="folder card">
-            <div class="card-body">
-                <h4 class="text-secondary">Playback</h4>
-                <p>Load a game recording and watch replay.</p>
-            </div>
-        </div>
+    <div class="folder card">
+      <div class="card-body">
+        <h4 class="text-primary">Join</h4>
+        <p>
+          Here you can join a room that gathers participants.
+          Public rooms are available on the list.
+          To join a hidden room, you must explicitly provide its identifier.
+        </p>
+      </div>
     </div>
+    <div class="folder card">
+      <div class="card-body">
+        <h4 class="text-danger">Play</h4>
+        <p>
+          All participants gather here before playing.
+          Once started, you can return to the current game after reloading the browser page.
+        </p>
+      </div>
+    </div>
+    <div class="folder card">
+      <div class="card-body">
+        <h4 class="text-secondary">Playback</h4>
+        <p>Load a game recording and watch replay.</p>
+      </div>
+    </div>
+  </div>
 </div>

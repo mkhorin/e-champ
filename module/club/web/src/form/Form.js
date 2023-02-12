@@ -103,7 +103,8 @@ Club.Form = class Form extends Club.Element {
 
     serialize () {
         const result = {};
-        for (const item of this.find('[name]')) {
+        const items = this.find('[name]');
+        for (const item of items) {
             result[item.name] = $(item).val();
         }
         return result;
@@ -115,7 +116,8 @@ Club.Form = class Form extends Club.Element {
 
     validate () {
         this.clearErrors();
-        for (const item of this.find('[name]')) {
+        const items = this.find('[name]');
+        for (const item of items) {
             const $attr = this.getAttrByElement(item);
             const value = $(item).val();
             if ($attr.hasClass('required') && !value) {

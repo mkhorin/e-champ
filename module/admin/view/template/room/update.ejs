@@ -1,64 +1,64 @@
 <%
 layout(_view.get('_layout/frame/form'), {
-    params: {
-        id: room.id,
-        save: false,
-        delete: _url('delete')
-    }
+  params: {
+    id: room.id,
+    save: false,
+    delete: _url('delete')
+  }
 });
 block('tab', 'Room');
 block('title', room.id);
 block('commands').append({
-    template: _view.get('_part/tool/delete')
+  template: _view.get('_part/tool/delete')
 });
 
 const staticTemplate = _view.get('_part/attr/static');
 %>
 
 <%- include(staticTemplate, {
-    attr: 'room',
-    value: room.id
+  attr: 'room',
+  value: room.id
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'label',
-    value: room.game.label,
-    translateValue: room.game.name
+  attr: 'label',
+  value: room.game.label,
+  translateValue: room.game.name
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'name',
-    value: room.game.name
+  attr: 'name',
+  value: room.game.name
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'new',
-    value: room.isNew(),
-    format: 'boolean'
+  attr: 'new',
+  value: room.isNew(),
+  format: 'boolean'
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'public',
-    value: room.isPublic(),
-    format: 'boolean'
+  attr: 'public',
+  value: room.isPublic(),
+  format: 'boolean'
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'createdAt',
-    value: room.createdAt,
-    format: 'timestamp'
+  attr: 'createdAt',
+  value: room.createdAt,
+  format: 'timestamp'
 }) %>
 
 <%- include(_view.get('_part/attr/custom'), {
-    attr: 'players',
-    content: {
-        template: _view.getInternalTemplate('_players')
-    }
+  attr: 'players',
+  content: {
+    template: _view.getInternalTemplate('_players')
+  }
 }) %>
 
 <%- include(_view.get('_part/group/set'), {
-    id: 'options',
-    title: `Options`,
-    active: false,
-    items: [{template: _view.getInternalTemplate('_options')}]
+  id: 'options',
+  title: `Options`,
+  active: false,
+  items: [{template: _view.getInternalTemplate('_options')}]
 }) %>

@@ -2,24 +2,23 @@
 layout(_view.get('_layout/list'));
 block('title', 'Games');
 %>
-
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'name'
-        }, {
-            name: 'label',
-            format: {
-                name: 'translationByData',
-                key: 'name'
-            }
-        }, {
-            name: 'maxPlayers'
-        }],
-        key: 'name',
-        create: null,
-        delete: null,
-        multiple: false,
-        showTop: false
-    }
+  data: {
+    columns: [{
+      name: 'name'
+    }, {
+      name: 'label',
+      format: {
+        name: 'translationByData',
+        key: 'name'
+      }
+    }, {
+      name: 'maxPlayers'
+    }],
+    key: 'name',
+    create: null,
+    delete: null,
+    multiple: false,
+    showTop: false
+  }
 }) %>
