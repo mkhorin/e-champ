@@ -51,9 +51,10 @@ Club.FormRooms = class FormRooms extends Club.FormAttr {
     }
 
     renderItemParams ({players, options}) {
+        const freePlayers = players.filter(({ready}) => !ready);
         const result = [
             this.renderItemParam('Players', players.length),
-            this.renderItemParam('Free', players.filter(({ready}) => !ready).length)
+            this.renderItemParam('Free', freePlayers.length)
         ];
         return result.join('');
     }
@@ -65,8 +66,8 @@ Club.FormRooms = class FormRooms extends Club.FormAttr {
         });
     }
 
-    onClickItem (event) {
-        this.toggleOpenItem($(event.currentTarget).closest('.item'));
+    onClickItem ({currentTarget}) {
+        this.toggleOpenItem($(currentTarget).closest('.item'));
     }
 
     toggleOpenItem ($item) {

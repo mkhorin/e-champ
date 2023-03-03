@@ -23,7 +23,8 @@ module.exports = class GameController extends Base {
 
     async actionList () {
         const model = this.createModel();
-        const data = await model.getListData(this.getPostParams());
+        const params = this.getPostParams();
+        const data = await model.getListData(params);
         this.sendJson(data);
     }
 

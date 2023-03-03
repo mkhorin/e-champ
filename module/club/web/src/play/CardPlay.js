@@ -43,12 +43,13 @@ Club.CardPlay = class CardPlay extends Club.Play {
     }
 
     moveCard (card, offset, duration, delay) {
-        return this.motion.move({
+        const data = {
             element: card.element,
             target: offset,
             delay: this.motion.count() * (delay || Club.Card.MOVE_DELAY),
             duration: duration || Club.Card.MOVE_DURATION
-        });
+        };
+        return this.motion.move(data);
     }
 
     setDeckSkin () {
@@ -59,7 +60,9 @@ Club.CardPlay = class CardPlay extends Club.Play {
 
     getDeckSkinByLanguage (language) {
         switch (language) {
-            case 'ru': return 'slavic';
+            case 'ru': {
+                return 'slavic';
+            }
         }
         return 'german';
     }

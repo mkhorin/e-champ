@@ -15,7 +15,10 @@ module.exports = class Table {
 
     isSameRank ({rank}) {
         for (const [attacking, defending] of this.pairs) {
-            if (attacking.rank === rank || defending?.rank === rank) {
+            if (attacking.rank === rank) {
+                return true;
+            }
+            if (defending?.rank === rank) {
                 return true;
             }
         }
@@ -60,7 +63,11 @@ module.exports = class Table {
             if (pair[0].rank !== attackingRank) {
                 return false;
             }
-            if (defendingRank ? pair[1]?.rank !== defendingRank : pair[1]) {
+            if (defendingRank) {
+                if (pair[1]?.rank !== defendingRank) {
+                    return false;
+                }
+            } else if (pair[1]) {
                 return false;
             }
         }

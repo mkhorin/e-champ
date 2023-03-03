@@ -12,7 +12,8 @@ module.exports = class Event {
     }
 
     match ({name, data}) {
-        return name === this.name && JSON.stringify(data) === JSON.stringify(this.data);
+        return name === this.name
+            && JSON.stringify(data) === JSON.stringify(this.data);
     }
 
     serializeForPlayer () {

@@ -40,10 +40,12 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
     }
 
     renderBots (data) {
-        return data.bots.map(({name, label}) => {
-            const selected = name === data.defaultBot ? 'selected' : '';
-            return `<option value="${name}" ${selected}>${label}</option>`;
-        }).join('');
+        return data.bots.map(this.renderBot.bind(this, data)).join('');
+    }
+
+    renderBot (data, {name, label}) {
+        const selected = name === data.defaultBot ? 'selected' : '';
+        return `<option value="${name}" ${selected}>${label}</option>`;
     }
 
     setDefaultOpponents () {
@@ -59,7 +61,8 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
         const [type, bot] = data.split(':');
         const $type = this.find(`[value="${type}"]`).eq(index).click();
         if (bot) {
-            $type.closest('.form-opponent').find('select').val(bot).change();
+            const $opponent = $type.closest('.form-opponent');
+            $opponent.find('select').val(bot).change();
         }
     }
 

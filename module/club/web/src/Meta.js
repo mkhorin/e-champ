@@ -19,7 +19,8 @@ Club.Meta = class Meta {
     }
 
     load (key, data) {
-        return $.post(this.getUrl(key), data).fail(this.onFail.bind(this));
+        const url = this.getUrl(key);
+        return $.post(url, data).fail(this.onFail.bind(this));
     }
 
     onFail () {

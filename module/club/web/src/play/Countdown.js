@@ -47,8 +47,13 @@ Club.Countdown = class Countdown {
 Club.CircularCountdown = class CircularCountdown extends Club.Countdown {
 
     draw () {
+        let current = 0;
         let value = this.getValue();
-        let current = !this.timeout ? 360 : value < 0 ? 0 : Math.round(value * 360 / this.timeout);
+        if (!this.timeout) {
+            current = 360;
+        } else if (value > 0) {
+            current = Math.round(value * 360 / this.timeout);
+        }
         if (current > 180) {
             current = 360 - current;
             this.$element.removeClass('less-half');

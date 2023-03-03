@@ -24,7 +24,8 @@ module.exports = class Deck extends Base {
         this.clear();
         for (let rank = min; rank <= max; ++rank) {
             for (const suit of Card.getSuits()) {
-                this.add(this.createCard(rank, suit));
+                const card = this.createCard(rank, suit);
+                this.add(card);
             }
         }
     }
@@ -40,7 +41,8 @@ module.exports = class Deck extends Base {
             if (rank > this.maxRank) {
                 this.maxRank = rank;
             }
-            this.add(this.createCard(rank, suit));
+            const card = this.createCard(rank, suit);
+            this.add(card);
         }
     }
 

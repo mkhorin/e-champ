@@ -111,17 +111,19 @@ module.exports = class Room extends Base {
         if (this.play) {
             return this.play.onRemoteMessage(data, socket);
         }
-        socket.send(this.getGatheringData());
+        const gathering = this.getGatheringData();
+        socket.send(gathering);
     }
 
     getGatheringData () {
+        const players = this.players.map(this.getPlayerGatheringData, this);
         return {
             room: this.id,
             name: this.game.name,
             label: this.game.label,
             public: this.public,
-            players: this.players.map(this.getPlayerGatheringData, this),
-            options: this.options
+            options: this.options,
+            players
         };
     }
 

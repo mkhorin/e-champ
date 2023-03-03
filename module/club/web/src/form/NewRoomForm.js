@@ -38,7 +38,9 @@ Club.NewRoomForm = class NewRoomForm extends Club.Form {
 
     renderAttr (data) {
         switch (data.view) {
-            case 'select': return this.renderSelectAttr(data);
+            case 'select': {
+                return this.renderSelectAttr(data);
+            }
         }
         return this.renderDefaultAttr(data);
     }

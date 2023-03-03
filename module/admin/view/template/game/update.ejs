@@ -24,7 +24,8 @@ const staticTemplate = _view.get('_part/attr/static');
 
 <%- include(staticTemplate, {
   attr: 'webPage',
-  value: _format(game.webPage, 'url', {target: '_blank'})
+  value: _format(game.webPage, 'url', {target: '_blank'}),
+  escape: false
 }) %>
 
 <%- include(staticTemplate, {

@@ -110,7 +110,10 @@ Club.Play = class Play extends Club.Element {
     }
 
     getInfoItems () {
-        return [...this.getTopInfoItems(), ...this.getOptionInfoItems()];
+        return [
+            ...this.getTopInfoItems(),
+            ...this.getOptionInfoItems()
+        ];
     }
 
     getTopInfoItems () {
@@ -121,9 +124,14 @@ Club.Play = class Play extends Club.Element {
     }
 
     getOptionInfoItems () {
-        return this.game.optionAttrs?.map(({name, label}) => {
-            return [this.translate(label), this.translate(this.options[name])];
-        }) || [];
+        return this.game.optionAttrs?.map(this.getOptionInfoItem, this) || [];
+    }
+
+    getOptionInfoItem ({name, label}) {
+        return [
+            this.translate(label),
+            this.translate(this.options[name])
+        ];
     }
 
     hasExportData () {

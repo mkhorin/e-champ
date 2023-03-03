@@ -81,13 +81,16 @@ Club.CardList = class CardList {
 
     remove (card) {
         const index = this.items.indexOf(card);
-        const item = index !== -1 ? this.items.splice(index, 1)[0] : null;
+        const item = index !== -1
+            ? this.items.splice(index, 1)[0]
+            : null;
         this.trigger('change');
         return item;
     }
 
     arrange (addition = 0) {
-        const [dx, dy] = this.getSteps(this.count() + addition);
+        const delta = this.count() + addition;
+        const [dx, dy] = this.getSteps(delta);
         for (let i = 0; i < this.items.length; ++i) {
             this.items[i].setOffset(this.x + dx * i, this.y + dy * i);
         }
@@ -132,14 +135,13 @@ Club.CardList = class CardList {
     }
 
     getCardOffset (card) {
-        const [dx, dy] = this.getSteps(this.count());
+        const delta = this.count();
+        const [dx, dy] = this.getSteps(delta);
         const index = this.items.indexOf(card);
         return [this.x + dx * index, this.y + dy * index];
     }
 
     trigger (name, data) {
-        if (this.$listener) {
-            this.$listener.trigger(`cards:${name}`, data);
-        }
+        this.$listener?.trigger(`cards:${name}`, data);
     }
 };

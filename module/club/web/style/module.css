@@ -263,6 +263,10 @@ body {
 .form-opponent-bot {
   display: none;
 }
+.form-opponent-bot .form-select {
+  padding-top: .32rem;
+  padding-bottom: .32rem;
+}
 .form-opponent[data-type="bot"] .form-opponent-bot {
   display: block;
 }

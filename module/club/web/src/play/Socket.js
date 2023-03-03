@@ -49,7 +49,7 @@ Club.Socket = class Socket {
         Jam.dialog.error('WebSocket connection closed').then(() => location.reload());
     }
 
-    onError () {
+    async onError () {
         Jam.dialog.error('WebSocket connection failed').then(() => location.reload());
         this._opening.reject();
     }
