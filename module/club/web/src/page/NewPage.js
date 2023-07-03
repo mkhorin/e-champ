@@ -15,7 +15,8 @@ Club.NewPage = class NewPage extends Club.Page {
 
     onCreate () {
         if (this.form.validate()) {
-            this.ajaxRoomAction('create', this.form.serialize())
+            const data = this.form.serialize();
+            this.ajaxRoomAction('create', data)
                 .done(this.onDone.bind(this))
                 .fail(this.onFail.bind(this));
         }

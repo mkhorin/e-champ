@@ -81,6 +81,7 @@ Club.Element = class Element {
     }
 
     ajaxRoomAction (action, data) {
-        return this.club.ajaxQueue.post(this.getRoomUrl(action), data);
+        const url = this.getRoomUrl(action);
+        return this.club.ajaxQueue.post(url, data);
     }
 };

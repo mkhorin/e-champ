@@ -9,10 +9,8 @@ module.exports = class DefaultController extends Base {
 
     actionIndex () {
         const arena = this.module.getArena();
-        return this.render('index', {
-            games: arena.serializeGames(),
-            arena
-        });
+        const games = arena.serializeGames();
+        return this.render('index', {games, arena});
     }
 };
 module.exports.init(module);
