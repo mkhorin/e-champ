@@ -1,3 +1,18 @@
+## 2.10.0
+
+* fix errors
+* upgrade dependencies
+
+## 2.9.0
+
+* fix errors
+* upgrade dependencies
+
+## 2.8.0
+
+* fix errors
+* upgrade dependencies
+
 ## 2.7.0
 
 * module/club/web/src/play/PlayEvents
