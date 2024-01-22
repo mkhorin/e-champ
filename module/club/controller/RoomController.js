@@ -45,7 +45,7 @@ module.exports = class RoomController extends Base {
         if (!await model.validate()) {
             return this.sendModelErrors(model);
         }
-        const room = model.room;
+        const {room} = model;
         const player = model.player || room.getFreePlayer();
         if (!player) {
             throw new BadRequest('All players are already taken');
@@ -66,14 +66,14 @@ module.exports = class RoomController extends Base {
 
     actionPlay () {
         const room = this.getRoom();
-        const game = room.game;
+        const {game} = room;
         const template = game.getTemplate('play', this);
         return this.render(template, {room, game});
     }
 
     actionDownload () {
         const room = this.getRoom();
-        const play = room.play;
+        const {play} = room;
         if (!play) {
             throw new BadRequest('Room has not started playing yet');
         }

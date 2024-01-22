@@ -22,7 +22,7 @@ Club.FormOpponents = class FormOpponents extends Club.FormAttr {
 
     renderItems () {
         const items = [];
-        const game = this.form.game;
+        const {game} = this.form;
         if (game) {
             for (let i = 1; i < game.maxPlayers; ++i) {
                 items.push(this.renderItem(i, game));

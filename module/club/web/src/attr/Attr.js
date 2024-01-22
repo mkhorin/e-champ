@@ -29,7 +29,8 @@ Club.FormAttr = class FormAttr extends Club.Element {
     setFromStorage () {
         const key = this.getStorageKey();
         if (key) {
-            this.setValue(Jam.localStorage.get(key));
+            const defaultValue = this.$value.attr('value');
+            this.setValue(Jam.localStorage.get(key, defaultValue));
         }
     }
 

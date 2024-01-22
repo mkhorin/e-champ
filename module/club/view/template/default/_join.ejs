@@ -1,4 +1,7 @@
 <!-- default/_join -->
+<%
+const username = _controller.user.getTitle('');
+%>
 <div class="page" data-page="join" data-handler="JoinPage">
 
   <div class="page-head">
@@ -21,7 +24,8 @@
     <div class="form-attr form-group row required" data-handler="FormAttr">
       <label class="col-lg-3 col-form-label" data-t="">Your name</label>
       <div class="col-lg-9">
-        <input type="text" name="name" class="form-control" required data-storage-key="userPlayerName">
+        <input type="text" name="name" class="form-control" value="<%= username %>"
+               required data-storage-key="userPlayerName">
         <div class="error-block"></div>
       </div>
     </div>

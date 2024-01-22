@@ -20,7 +20,7 @@ Club.PlayPage = class PlayPage extends Club.Page {
     activate ({data}) {
         super.activate();
         this.clearPlay();
-        const room = data.room;
+        const {room} = data;
         this.toggleLoading(true);
         this.ajaxRoomAction('play', {room})
             .then(this.resolveResources.bind(this))
@@ -61,7 +61,7 @@ Club.PlayPage = class PlayPage extends Club.Page {
         if (play.hasExportData()) {
             return this.downloadData(play.exportData());
         }
-        const room = play.room;
+        const {room} = play;
         this.ajaxRoomAction('download', {room})
             .then(this.onExportData.bind(this, play))
             .catch(this.onFail.bind(this));
