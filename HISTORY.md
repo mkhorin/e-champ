@@ -1,3 +1,8 @@
+## 2.11.0
+
+* fix code formatting
+* upgrade dependencies
+
 ## 2.10.0
 
 * fix errors
